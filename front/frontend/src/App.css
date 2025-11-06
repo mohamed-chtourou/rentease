@@ -1,0 +1,340 @@
+/* --- Styles généraux et Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Poppins, Arial, sans-serif;
+    background: #f7f7f7; /* Fond gris très clair */
+    color: #222;
+}
+
+.App {
+    min-height: 100vh;
+}
+
+/* --- 2. Header (En-tête) --- */
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 0 0;
+    border-bottom: 1px solid rgba(36, 48, 37, 0.06);
+    background: white;
+    position: relative;
+    width: 100vw;
+}
+
+.header-inner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.header-search-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0 1.5rem;
+}
+
+.main-nav, .user-actions {
+    min-width: 580px; /* Reserve more side space to accommodate the larger 180px logo */
+    display: flex;
+    align-items: center;
+}
+
+.user-actions {
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+/* Navigation centrale (Homes/Rooms) */
+.nav-tabs {
+    display: flex;
+    gap: 3rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 0.5rem 1.4rem;
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+    position: relative;
+    font-size: 1.4rem;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    color: #598f4e;
+}
+
+.nav-item.active {
+    color: rgb(55, 81, 50);
+    font-weight: 600;
+}
+
+/* Ligne noire sous l'onglet actif */
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -14px;
+    left: 8%;
+    width: 84%;
+    height: 4px;
+    background-color: rgb(33, 45, 32);
+    border-radius: 4px;
+}
+
+.nav-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+/* Make room icon slightly larger */
+.nav-item img[src*="room-icon"] {
+    width: 70px;
+    height: 70px;
+}
+
+.nav-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Boutons d'action (Messages, Menu) */
+.chat-button, .menu-button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.chat-button img,
+.menu-button img {
+    width: 18px;
+    height: 18px;
+    display: block;
+    object-fit: contain;
+}
+
+/* Hover like host-button for consistency */
+.chat-button:hover,
+.menu-button:hover {
+    background-color: rgba(67, 87, 58, 0.04);
+    color: #598f4e;
+}
+
+/* Logo sizing so it doesn't push into the center nav */
+.logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    display: block;
+    margin-left: -1rem;
+}
+
+/* Host button: dark, bold text on transparent background (no black pill) */
+.host-button {
+    background: transparent;
+    border: none;
+    color: #222; /* dark text */
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.4rem 0.65rem;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.15s ease;
+}
+.host-button:hover {
+    background-color: rgba(67, 87, 58, 0.04);
+    color: #598f4e;
+}
+
+/* --- 3. SearchBar (Pilule de Recherche) --- */
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+}
+
+/* Titre principal de la page */
+.page-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #1a3a2e;
+    text-align: center;
+    margin: 3rem 0 2.5rem 0;
+    letter-spacing: -1px;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #2d5a45 0%, #4a8064 50%, #5a9e76 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, #c9db7e 0%, #aac687 100%);
+    margin: 1.5rem auto 0;
+    border-radius: 2px;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-pill-form {
+    display: flex;
+    background: #ffffff;
+    border-radius: 4rem;
+    padding: 12px 24px;
+    margin: 24px auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.18), 0 8px 20px rgba(0,0,0,0.08);
+    width: 85%;
+    max-width: 850px;
+}
+
+.search-section {
+    flex: 1;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    border-radius: 3rem;
+    transition: background-color 0.2s;
+}
+
+.search-section:hover {
+    background-color: #eee;
+}
+
+/* Séparation visuelle entre les champs */
+.search-section:not(:last-child) {
+    border-right: 1px solid rgba(46, 53, 40, 0.06);
+}
+
+.search-section label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.search-section input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #444;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+/* Date range inside the When section */
+.date-range {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.date-range input {
+    background: transparent;
+    border: none;
+    color: #596a59;
+    font-size: 0.95rem;
+    outline: none;
+    padding: 6px 8px;
+}
+
+/* Section 'Who' avec le bouton de recherche */
+.who-section {
+    display: flex;
+    align-items: center;
+    padding-right: 0;
+}
+
+.number-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: 1rem;
+}
+
+.number-input input {
+    width: 40px;
+    text-align: center;
+    padding: 0.25rem;
+    font-size: 1rem;
+}
+
+.number-input button {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    background: white;
+    color: #222;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.number-input button:hover {
+    background-color: #aac687;
+}
+
+.search-button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: #c9db7e; /* Vert citron clair */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    flex-shrink: 0;
+}
+
+.search-button img {
+    width: 20px;
+    height: 20px;
+}
+

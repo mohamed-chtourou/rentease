@@ -1,0 +1,55 @@
+/* Property Grid Section */
+.property-grid-section {
+    width: 100%;
+    max-width: 1400px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1a3a2e;
+    margin-bottom: 3rem;
+    padding-left: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2.5rem;
+    justify-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .property-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .property-grid-section {
+        padding: 0 1rem;
+        margin: 3rem auto;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        padding-left: 0.5rem;
+    }
+
+    .property-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.75rem;
+    }
+}

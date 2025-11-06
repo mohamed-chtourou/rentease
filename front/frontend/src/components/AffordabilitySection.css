@@ -1,0 +1,25 @@
+/* Find homes you can afford */
+.afford-section{ width:100%; max-width:1440px; margin:4rem auto; padding:0 2rem; }
+.afford-header h2{ font-size:2.4rem; font-weight:800; color:#0f4747; margin-bottom:.5rem; }
+.afford-header p{ color:#2f6666; font-weight:600; opacity:.8; }
+
+.afford-content{ display:grid; grid-template-columns: repeat(3, 1fr); gap:2rem; align-items:stretch; margin-top:1.75rem; }
+
+/* Left form card */
+.afford-form-card{ grid-column:1 / span 1; background:#fbffff; border:2px solid #0f4747; border-radius:14px; padding:2rem; height:100%; display:flex; flex-direction:column; }
+.form-row{ margin-bottom:2rem; }
+.form-row label{ display:block; font-weight:800; color:#0f4747; font-size:1.3rem; margin-bottom:1rem; }
+.price-input{ width:320px; max-width:100%; height:52px; background:#fff9d8; border:2px solid rgba(15,71,71,.2); border-radius:12px; padding:0 16px; font-size:1.1rem; font-weight:700; color:#0f4747; }
+
+.type-pills{ display:flex; gap:.75rem; flex-wrap:wrap; }
+.type-pill{ padding:.6rem 1.2rem; border:2px solid #0f4747; border-radius:12px; background:white; color:#0f4747; font-weight:700; cursor:pointer; transition:all .2s; }
+.type-pill.active, .type-pill:hover{ background:#0f4747; color:white; }
+
+/* Right: teasers */
+.afford-teasers{ grid-column:2 / span 2; display:grid; grid-template-columns: 1fr 1fr; gap:2rem; height:100%; align-content:start; }
+
+@media (max-width: 1100px){
+  .afford-content{ grid-template-columns: 1fr; }
+  .afford-form-card{ grid-column:auto; }
+  .afford-teasers{ grid-column:auto; grid-template-columns:1fr; }
+}
