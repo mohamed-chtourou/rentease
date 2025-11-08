@@ -1,6 +1,8 @@
 // 1. Charger les variables d'environnement
 require('dotenv').config(); 
-
+const listingRoutes = require('./routes/listingRoutes');
+// Importation des routes d'avis
+const reviewRoutes = require('./routes/reviewRoutes'); 
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -28,3 +30,19 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Le serveur RentEase tourne sur le port: ${port}`);
 });
+
+// ... (code précédent)
+
+// Importation des routes (à ajouter en haut avec les autres 'require')
+// <-- NOUVEL IMPORT
+
+// ... (code de connexion MongoDB)
+
+// Utilisation des routes
+app.use('/api/Listing', listingRoutes);
+
+// Utiliser les routes d'avis comme sous-routes des annonces
+// L'URL complète sera: /api/listings/:listingId/reviews
+app.use('/api/Listing/:listingId/reviews', reviewRoutes); // <-- NOUVELLE LIGNE
+
+// ... (suite du code)
