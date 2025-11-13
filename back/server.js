@@ -1,48 +1,46 @@
-// 1. Charger les variables d'environnement
-require('dotenv').config(); 
-const listingRoutes = require('./routes/listingRoutes');
-// Importation des routes d'avis
-const reviewRoutes = require('./routes/reviewRoutes'); 
+// Load environment variables
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+// Routes
+const listingRoutes = require('./routes/listingRoutes');
+const reviewRoutes = require('./routes/reviewRoutes');
+
 const app = express();
-const port = process.env.PORT || 5000; // Le port par défaut sera 5000
+const port = process.env.PORT || 5000;
 
-// Middlewares
+// Global middlewares
 app.use(cors());
-app.use(express.json()); // Permet d'analyser les corps de requête JSON
+app.use(express.json());
 
-// --- Connexion à MongoDB ---
+// MongoDB connection
 const uri = process.env.MONGODB_URI;
+if (!uri) {
+    console.error('Missing MONGODB_URI in environment variables');
+    process.exit(1);
+}
 
 mongoose.connect(uri)
-    .then(() => console.log('Connexion à MongoDB réussie !'))
-    .catch(err => console.error('Erreur de connexion à MongoDB :', err));
+    .then(() => console.log('✅ Connected to MongoDB'))
+    .catch(err => {
+        console.error('❌ MongoDB connection error:', err.message);
+        process.exit(1);
+    });
 
-// --- Définition d'une Route de Test ---
-app.get('/', (req, res) => {
-    res.send('Bienvenue sur l\'API RentEase ! Le serveur fonctionne.');
+// Health check route
+app.get('/', (_req, res) => {
+    res.json({ status: 'ok', service: 'RentEase API', env: process.env.NODE_ENV || 'development' });
 });
 
-// --- Démarrage du Serveur ---
+// API routes (normalized to lowercase plural nouns)
+app.use('/api/listings', listingRoutes);
+// Nested review routes: /api/listings/:listingId/reviews
+app.use('/api/listings/:listingId/reviews', reviewRoutes);
+
+// Start server
 app.listen(port, () => {
-    console.log(`Le serveur RentEase tourne sur le port: ${port}`);
+    console.log(`🚀 RentEase API listening on port ${port}`);
 });
-
-// ... (code précédent)
-
-// Importation des routes (à ajouter en haut avec les autres 'require')
-// <-- NOUVEL IMPORT
-
-// ... (code de connexion MongoDB)
-
-// Utilisation des routes
-app.use('/api/Listing', listingRoutes);
-
-// Utiliser les routes d'avis comme sous-routes des annonces
-// L'URL complète sera: /api/listings/:listingId/reviews
-app.use('/api/Listing/:listingId/reviews', reviewRoutes); // <-- NOUVELLE LIGNE
-
-// ... (suite du code)

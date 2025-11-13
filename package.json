@@ -1,0 +1,14 @@
+{
+  "name": "rentease",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently -n BACK,FRONT -c green,cyan \"npm run dev --prefix back\" \"npm run dev --prefix front/frontend\"",
+    "dev:back": "npm run dev --prefix back",
+    "dev:front": "npm run dev --prefix front/frontend",
+    "install:all": "npm i --prefix back && npm i --prefix front/frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
