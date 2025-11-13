@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './HighlightsSection.css';
 
 const HighlightsSection = ({ listings = [], onLogin, onSignIn }) => {
+  const navigate = useNavigate();
   const top = listings[0];
   const second = listings[1] || top;
   const third = listings[2] || second;
@@ -23,8 +25,8 @@ const HighlightsSection = ({ listings = [], onLogin, onSignIn }) => {
           <h2 className="recommend-title">Get home recommendations</h2>
           <p className="recommend-sub">Sign in for a more personalized experience.</p>
           <div className="recommend-actions">
-            <button className="auth-button" onClick={() => (onLogin ? onLogin() : alert('Login placeholder'))}>Log in</button>
-            <button className="auth-button" onClick={() => (onSignIn ? onSignIn() : alert('Sign in placeholder'))}>Sign in</button>
+            <button className="auth-button" onClick={() => onLogin ? onLogin() : navigate('/login')}>Log in</button>
+            <button className="auth-button" onClick={() => onSignIn ? onSignIn() : navigate('/signup')}>Sign in</button>
           </div>
         </div>
         {/* Stacked preview */}

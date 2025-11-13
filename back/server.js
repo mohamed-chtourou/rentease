@@ -8,6 +8,7 @@ const cors = require('cors');
 // Routes
 const listingRoutes = require('./routes/listingRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -39,6 +40,8 @@ app.get('/', (_req, res) => {
 app.use('/api/listings', listingRoutes);
 // Nested review routes: /api/listings/:listingId/reviews
 app.use('/api/listings/:listingId/reviews', reviewRoutes);
+// User authentication routes: /api/users
+app.use('/api/users', userRoutes);
 
 // Start server
 app.listen(port, () => {

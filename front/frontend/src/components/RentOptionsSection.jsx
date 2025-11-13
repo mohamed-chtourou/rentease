@@ -1,8 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './RentOptionsSection.css';
 
 const RentOptionsSection = ({ onRoom, onHome, onLogin, onSignIn, onHost }) => {
-  const handle = (fn, fallbackMsg) => () => {
+  const navigate = useNavigate();
+
+  const handle = (fn, fallbackMsg, navigateTo) => () => {
+    if (navigateTo) return navigate(navigateTo);
     if (typeof fn === 'function') return fn();
     alert(fallbackMsg);
   };
@@ -19,7 +23,7 @@ const RentOptionsSection = ({ onRoom, onHome, onLogin, onSignIn, onHost }) => {
           />
         </div>
         <h3 className="rent-title">Rent a room</h3>
-        <button className="rent-cta" onClick={handle(onRoom, 'Find rentals: room')}>
+        <button className="rent-cta" onClick={handle(onRoom, 'Find rentals: room', '/rentals?type=room')}>
           Find rentals
         </button>
       </div>
@@ -31,10 +35,10 @@ const RentOptionsSection = ({ onRoom, onHome, onLogin, onSignIn, onHost }) => {
           network, to applying, to paying rent.
         </p>
         <div className="auth-actions">
-          <button className="auth-btn" onClick={handle(onLogin, 'Log in')}>Log in</button>
-          <button className="auth-btn" onClick={handle(onSignIn, 'Sign in')}>Sign in</button>
+          <button className="auth-btn" onClick={handle(onLogin, 'Log in', '/login')}>Log in</button>
+          <button className="auth-btn" onClick={handle(onSignIn, 'Sign in', '/signup')}>Sign in</button>
         </div>
-        <button className="host-btn" onClick={handle(onHost, 'Become a host')}>Become a host</button>
+        <button className="host-btn" onClick={handle(onHost, 'Become a host', '/host')}>Become a host</button>
       </div>
 
       {/* Right card: Rent a home */}
@@ -47,7 +51,7 @@ const RentOptionsSection = ({ onRoom, onHome, onLogin, onSignIn, onHost }) => {
           />
         </div>
         <h3 className="rent-title">Rent a home</h3>
-        <button className="rent-cta" onClick={handle(onHome, 'Find rentals: home')}>
+        <button className="rent-cta" onClick={handle(onHome, 'Find rentals: home', '/rentals?type=home')}>
           Find rentals
         </button>
       </div>

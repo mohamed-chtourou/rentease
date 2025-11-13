@@ -1,0 +1,113 @@
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0f4747 0%, #7c9658 100%);
+    padding: 2rem 1rem;
+}
+
+.auth-form-box {
+    background: rgb(181, 255, 197);
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    width: 100%;
+}
+
+.auth-form-box h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #0f4747;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.error-message {
+    background: #ffe6e6;
+    color: #d32f2f;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.auth-form-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.auth-form-box input,
+.auth-form-box select {
+    padding: 0.875rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.auth-form-box input:focus,
+.auth-form-box select:focus {
+    outline: none;
+    border-color: #0f4747;
+}
+
+.auth-form-box select {
+    cursor: pointer;
+    background: rgb(57, 57, 57);
+}
+
+.auth-form-box button {
+    padding: 1rem;
+    background: #0f4747;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.auth-form-box button:hover:not(:disabled) {
+    background: #1a3a2e;
+}
+
+.auth-form-box button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.auth-form-box p {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.toggle-auth {
+    color: #0f4747;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: color 0.3s ease;
+}
+
+.toggle-auth:hover {
+    color: #598f4e;
+}
+
+@media (max-width: 480px) {
+    .auth-form-box {
+        padding: 2rem 1.5rem;
+    }
+
+    .auth-form-box h2 {
+        font-size: 1.5rem;
+    }
+}
