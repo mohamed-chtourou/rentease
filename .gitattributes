@@ -1,0 +1,11 @@
+* text=auto
+
+# Normalize common source files to LF (avoid CRLF churn across OSes)
+*.js  text eol=lf
+*.jsx text eol=lf
+*.ts  text eol=lf
+*.tsx text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.json text eol=lf
+*.md  text eol=lf
