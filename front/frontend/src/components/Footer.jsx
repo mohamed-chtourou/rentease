@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -37,18 +38,18 @@ const Footer = () => {
                 <div className="footer-section">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="#">About Us</a></li>
+                        <li><Link to="/about">About Us</Link></li>
                         <li><a href="#">Careers</a></li>
                         <li><a href="#">Press</a></li>
                         <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><Link to="/contact">Contact</Link></li>
                     </ul>
                 </div>
 
                 <div className="footer-section">
                     <h4>Support</h4>
                     <ul>
-                        <li><a href="#">Help Center</a></li>
+                        <li><Link to="/help">Help Center</Link></li>
                         <li><a href="#">Safety Information</a></li>
                         <li><a href="#">Cancellation Options</a></li>
                         <li><a href="#">Trust & Safety</a></li>
@@ -70,10 +71,10 @@ const Footer = () => {
                 <div className="footer-section">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">Sitemap</a></li>
+                        <li><Link to="/legal#terms">Terms of Service</Link></li>
+                        <li><Link to="/legal#privacy">Privacy Policy</Link></li>
+                        <li><Link to="/legal#cookies">Cookie Policy</Link></li>
+                        <li><Link to="/legal#sitemap">Sitemap</Link></li>
                     </ul>
                 </div>
             </div>
@@ -86,7 +87,7 @@ const Footer = () => {
                         <span className="separator">·</span>
                         <a href="#">DT (TND)</a>
                         <span className="separator">·</span>
-                        <a href="#">Support</a>
+                        <Link to="/help">Support</Link>
                     </div>
                 </div>
             </div>

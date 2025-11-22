@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import Header from './components/Header';
 import MapView from './components/MapView';
@@ -12,6 +12,10 @@ import { mockListings } from './data/mockListings';
 import Rentals from './pages/Rentals';
 import { LoginPage, SignupPage, HostOnboarding } from './pages/AuthPlaceholder';
 import LoginSignup from './components/LoginSignup';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Faq from './pages/Faq';
+import Legal from './pages/Legal';
 import './App.css';
 // Home page content extracted for routing clarity
 const HomeContent = ({ listings, onSearch, searchResults, loading, error }) => (
@@ -39,11 +43,9 @@ const HomeContent = ({ listings, onSearch, searchResults, loading, error }) => (
 
 function App() {
     const [searchResults, setSearchResults] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-
-    // Données de test centralisées
-    const [listings, setListings] = useState(mockListings);
+    const loading = false;
+    const error = null;
+    const listings = mockListings;
 
     const handleNewSearch = (data) => {
         setSearchResults(data);
@@ -59,6 +61,11 @@ function App() {
               <Route path="/login" element={<LoginSignup />} />
               <Route path="/signup" element={<LoginSignup />} />
               <Route path="/host" element={<HostOnboarding />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/help" element={<Faq />} />
+              <Route path="/faq" element={<Faq />} />
+              <Route path="/legal" element={<Legal />} />
             </Routes>
             <Footer />
           </div>
