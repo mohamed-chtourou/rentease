@@ -15,7 +15,6 @@ import LoginSignup from './components/LoginSignup';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Faq from './pages/Faq';
-import Legal from './pages/Legal';
 import './App.css';
 // Home page content extracted for routing clarity
 const HomeContent = ({ listings, onSearch, searchResults, loading, error }) => (
@@ -65,7 +64,6 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/help" element={<Faq />} />
               <Route path="/faq" element={<Faq />} />
-              <Route path="/legal" element={<Legal />} />
             </Routes>
             <Footer />
           </div>
