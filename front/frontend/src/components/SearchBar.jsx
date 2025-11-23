@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/listings';
-
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, isSearching = false }) => {
     const [location, setLocation] = useState('');
     const [checkIn, setCheckIn] = useState('');
     const [checkOut, setCheckOut] = useState('');
@@ -12,18 +9,13 @@ const SearchBar = ({ onSearch }) => {
     const handleSearch = async (e) => {
         e.preventDefault();
 
-    const params = {};
-    if (location) params.location = location;
-    if (checkIn) params.checkIn = checkIn;
-    if (checkOut) params.checkOut = checkOut;
-    params.guests = guests; // Always send guests count
+        const params = {};
+        if (location) params.location = location;
+        if (checkIn) params.checkIn = checkIn;
+        if (checkOut) params.checkOut = checkOut;
+        params.guests = guests; // Always send guests count
 
-        try {
-            const response = await axios.get(API_URL, { params });
-            onSearch(response.data);
-        } catch (error) {
-            console.error('Erreur lors de la recherche :', error);
-        }
+        await onSearch(params);
     };
 
     return (
@@ -58,18 +50,20 @@ const SearchBar = ({ onSearch }) => {
             <div className="search-section who-section">
                 <label>Who</label>
                 <div className="number-input">
-                    <button type="button" onClick={() => setGuests(Math.max(1, guests - 1))}>-</button>
-                    <input 
-                        type="number" 
-                        value={guests} 
-                        onChange={(e) => setGuests(Math.max(1, Math.min(16, parseInt(e.target.value) || 1)))}
-                        min="1" 
+                    <button type="button" onClick={() => setGuests(Math.max(1, guests - 1))} disabled={isSearching}>-</button>
+                    <input
+                        type="number"
+                        value={guests}
+                        onChange={(e) => setGuests(Math.max(1, Math.min(16, parseInt(e.target.value, 10) || 1)))}
+                        min="1"
                         max="16"
+                        disabled={isSearching}
                     />
-                    <button type="button" onClick={() => setGuests(Math.min(16, guests + 1))}>+</button>
+                    <button type="button" onClick={() => setGuests(Math.min(16, guests + 1))} disabled={isSearching}>+</button>
                 </div>
-                <button type="submit" className="search-button">
+                <button type="submit" className="search-button" disabled={isSearching}>
                     <img src="/search-icon.png" alt="Search" style={{ width: 18, height: 18 }} />
+                    <span className="sr-only">Search</span>
                 </button>
             </div>
         </form>
