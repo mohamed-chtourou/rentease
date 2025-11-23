@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import SearchBar from './SearchBar';
 import UserMenu from './UserMenu';
 
-const Header = ({ onSearch }) => {
+const Header = ({ onSearch, isSearching = false }) => {
     const [view, setView] = useState('Homes');
     const navigate = useNavigate();
     const location = useLocation();
@@ -64,7 +64,7 @@ const Header = ({ onSearch }) => {
                 </div>
             </div>
             <div className="header-search-row">
-                <SearchBar onSearch={onSearch} />
+                <SearchBar onSearch={onSearch} isSearching={isSearching} />
             </div>
         </header>
     );
