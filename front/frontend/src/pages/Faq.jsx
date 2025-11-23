@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './InfoPages.css';
 
 const faqs = [
@@ -25,17 +25,26 @@ const faqs = [
   },
 ];
 
-const Faq = () => (
-  <div className="info-page">
-    <section className="hero-panel">
-      <p className="eyebrow">FAQ & Aide</p>
-      <h1>Tout ce qu&apos;il faut savoir pour bien utiliser RentEase</h1>
-      <p className="lead">
-        Retrouvez les réponses aux questions les plus fréquentes pour publier une annonce, réserver ou contacter un
-        propriétaire. Vous ne trouvez pas votre réponse ? Écrivez-nous.
-      </p>
-      <Link to="/contact" className="cta-button">Contactez-nous</Link>
-    </section>
+const Faq = () => {
+  const navigate = useNavigate();
+
+  return (
+    <div className="info-page">
+      <div className="page-nav-header">
+        <Link to="/" className="logo-home-link">
+          <img src="/logo.png" alt="RentEase" className="page-logo" />
+        </Link>
+        <button className="back-link" onClick={() => navigate(-1)}>← Retour</button>
+      </div>
+      <section className="hero-panel">
+        <p className="eyebrow">FAQ & Aide</p>
+        <h1>Tout ce qu&apos;il faut savoir pour bien utiliser RentEase</h1>
+        <p className="lead">
+          Retrouvez les réponses aux questions les plus fréquentes pour publier une annonce, réserver ou contacter un
+          propriétaire. Vous ne trouvez pas votre réponse ? Écrivez-nous.
+        </p>
+        <Link to="/contact" className="cta-button">Contactez-nous</Link>
+      </section>
 
     <section className="grid-block">
       <div className="grid-header">
@@ -52,6 +61,7 @@ const Faq = () => (
       </div>
     </section>
   </div>
-);
+  );
+};
 
 export default Faq;

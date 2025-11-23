@@ -1,10 +1,34 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './InfoPages.css';
 
 const Legal = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // Scroll to hash target after route change (React Router doesn't always auto-scroll in SPAs)
+    useEffect(() => {
+        if (location.hash) {
+            const id = location.hash.replace('#', '');
+            const el = document.getElementById(id);
+            if (el) {
+                // Smooth scroll for better UX
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        } else {
+            // Ensure page top when arriving without hash
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }, [location]);
+
     return (
         <div className="info-page">
+            <div className="page-nav-header">
+                <Link to="/" className="logo-home-link">
+                    <img src="/logo.png" alt="RentEase" className="page-logo" />
+                </Link>
+                <button className="back-link" onClick={() => navigate(-1)}>← Retour</button>
+            </div>
             <section className="hero-panel">
                 <p className="eyebrow">Legal</p>
                 <h1>Our policies, your peace of mind</h1>

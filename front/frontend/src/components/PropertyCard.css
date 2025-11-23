@@ -1,4 +1,12 @@
 /* Property Card Styles */
+/* Palette variables */
+:root {
+    --brand-deep: #08464F;
+    --brand-mid: #1E584F;
+    --brand-accent: #6F9361;
+    --brand-olive: #C0CE73;
+    --brand-soft: #FFF493;
+}
 .property-card {
     background: white;
     border-radius: 20px;
@@ -42,12 +50,12 @@
     position: absolute;
     left: 16px;
     bottom: 16px;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--brand-soft);
     border-radius: 12px;
     padding: 6px 10px;
     font-weight: 700;
-    color: #b45309;
-    border: 1px solid #fcd34d;
+    color: var(--brand-deep);
+    border: 1px solid var(--brand-olive);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
@@ -59,15 +67,15 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.95);
-    border: none;
+    background: rgba(252, 250, 250, 0.92);
+    border: 1px solid rgba(8,70,79,0.15);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    color: #2d5a45;
-    backdrop-filter: blur(10px);
+    color: var(--brand-mid);
+    backdrop-filter: blur(8px);
 }
 
 .favorite-button:hover {
@@ -76,8 +84,9 @@
 }
 
 .favorite-button.active {
-    background: #2d5a45;
-    color: white;
+    background: var(--brand-deep);
+    color: #fff;
+    border-color: var(--brand-deep);
 }
 
 .favorite-button svg {
@@ -100,7 +109,7 @@
 .property-title {
     font-size: 1.35rem;
     font-weight: 700;
-    color: #1a3a2e;
+    color: var(--brand-mid);
     margin: 0;
     flex: 1;
     line-height: 1.3;
@@ -109,7 +118,7 @@
 .property-price {
     font-size: 1.35rem;
     font-weight: 800;
-    color: #1a3a2e;
+    color: var(--brand-deep);
     white-space: nowrap;
     margin-left: 12px;
 }
@@ -135,19 +144,19 @@
 .property-availability {
     margin: 0 0 14px;
     font-weight: 600;
-    color: #2563eb;
+    color: var(--brand-olive);
 }
 
 /* Request Tour Button */
 .request-tour-button {
     width: 100%;
     padding: 14px 24px;
-    background: white;
-    border: 2px solid #1a3a2e;
+    background: #fff;
+    border: 2px solid var(--brand-deep);
     border-radius: 12px;
     font-size: 1rem;
     font-weight: 600;
-    color: #1a3a2e;
+    color: var(--brand-deep);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -157,10 +166,10 @@
 }
 
 .request-tour-button:hover {
-    background: #1a3a2e;
-    color: white;
+    background: var(--brand-deep);
+    color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(26, 58, 46, 0.2);
+    box-shadow: 0 6px 16px rgba(8, 70, 79, 0.25);
 }
 
 .request-tour-button svg {

@@ -20,8 +20,7 @@ router.get('/', async (req, res) => {
 // Créer un nouvel avis pour une annonce spécifique
 router.post('/', async (req, res) => {
     try {
-        // Assurez-vous d'avoir bien le rating et le comment dans req.body
-        const { rating, comment, userName } = req.body;
+        const { rating, comment, userName, stayDuration } = req.body;
         const listingId = req.params.listingId;
 
         if (!rating || !comment) {
@@ -32,8 +31,8 @@ router.post('/', async (req, res) => {
             rating,
             comment,
             userName,
-            listing: listingId, // Lien avec l'ID de l'annonce
-            // user: req.user._id, // Décommenter si l'authentification est en place
+            stayDuration,
+            listing: listingId,
         });
 
         await newReview.save();

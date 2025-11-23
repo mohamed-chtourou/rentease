@@ -9,9 +9,10 @@ const LoginSignup = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [role, setRole] = useState('Tenant');
+    const [rememberMe, setRememberMe] = useState(true);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [role, setRole] = useState('Tenant');
     const { login } = useAuth();
     const navigate = useNavigate();
 
@@ -19,37 +20,26 @@ const LoginSignup = () => {
         e.preventDefault();
         setLoading(true);
         setError(null);
-        
+
         const url = isLogin ? '/api/users/login' : '/api/users/signup';
-        const data = isLogin 
-            ? { email, password }
-            : { username, email, password, role };
+        const payload = isLogin ? { email, password } : { username, email, password, role };
 
         try {
-            const config = {
-                headers: { 'Content-Type': 'application/json' },
-            };
-            
-            const response = await axios.post(url, data, config);
-            
-            console.log("Authentication successful:", response.data);
-            
-            // Update auth context and localStorage
-            login(response.data);
-
-            // Optionally redirect or update app state
-            alert(`${isLogin ? 'Login' : 'Signup'} successful! Welcome ${response.data.username}`);
-
-            // Reset form
-            setUsername('');
-            setEmail('');
-            setPassword('');
-
-            // Redirect to home page
-            navigate('/');
-
+            const response = await axios.post(url, payload, { headers: { 'Content-Type': 'application/json' } });
+            // Connexion réussie serveur
+            login(response.data, rememberMe);
+            navigate('/profile');
         } catch (err) {
-            setError(err.response?.data?.message || "An unknown error occurred.");
+            // Fallback hors-ligne / erreur serveur: créer session locale minimale
+            const fallbackUser = {
+                username: username || email.split('@')[0] || 'Utilisateur',
+                email,
+                role,
+                provider: 'local-fallback',
+            };
+            login(fallbackUser, rememberMe);
+            setError(err.response?.data?.message || 'Serveur indisponible, session locale créée.');
+            navigate('/profile');
         } finally {
             setLoading(false);
         }
@@ -58,56 +48,75 @@ const LoginSignup = () => {
     return (
         <div className="auth-container">
             <div className="auth-form-box">
-                <h2>{isLogin ? 'Log In' : 'Sign Up'} to RentEase</h2>
+                <h2>{isLogin ? 'Se connecter' : "Créer un compte"} RentEase</h2>
                 
                 {error && <div className="error-message">{error}</div>}
 
-                <form onSubmit={submitHandler}>
-                    
+                <form onSubmit={submitHandler} className="auth-form">
                     {!isLogin && (
-                        <>
+                        <div className="input-group">
+                            <label htmlFor="username">Nom complet</label>
                             <input
+                                id="username"
                                 type="text"
-                                placeholder="Username"
+                                placeholder="Jane Doe"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                                 required
                             />
-                            <select value={role} onChange={(e) => setRole(e.target.value)}>
-                                <option value="Tenant">Tenant (Looking for a place)</option>
-                                <option value="Host">Host (I want to list my property)</option>
-                            </select>
-                        </>
+                        </div>
                     )}
-                    
-                    <input
-                        type="email"
-                        placeholder="Email Address"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                    
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                    
+                    <div className="input-group">
+                        <label htmlFor="email">Email</label>
+                        <input
+                            id="email"
+                            type="email"
+                            placeholder="vous@example.com"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="input-group">
+                        <label htmlFor="password">Mot de passe</label>
+                        <input
+                            id="password"
+                            type="password"
+                            placeholder="••••••••"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    {!isLogin && (
+                        <div className="input-group">
+                            <label htmlFor="role">Rôle</label>
+                            <select id="role" value={role} onChange={(e) => setRole(e.target.value)}>
+                                <option value="Tenant">Locataire</option>
+                                <option value="Host">Hôte</option>
+                            </select>
+                        </div>
+                    )}
+                    <label className="remember-checkbox">
+                        <input
+                            type="checkbox"
+                            checked={rememberMe}
+                            onChange={(e) => setRememberMe(e.target.checked)}
+                        />
+                        Rester connecté·e
+                    </label>
                     <button type="submit" disabled={loading}>
-                        {loading ? 'Loading...' : (isLogin ? 'Log In' : 'Sign Up')}
+                        {loading ? 'Chargement...' : (isLogin ? 'Se connecter' : "S'inscrire")}
                     </button>
                 </form>
 
                 <p>
-                    {isLogin ? "Don't have an account?" : "Already have an account?"}
-                    <span 
-                        className="toggle-auth" 
+                    {isLogin ? 'Pas encore de compte ?' : 'Vous avez déjà un compte ?'}
+                    <span
+                        className="toggle-auth"
                         onClick={() => setIsLogin(!isLogin)}
                     >
-                        {isLogin ? " Sign Up" : " Log In"}
+                        {isLogin ? ' Créer un compte' : ' Se connecter'}
                     </span>
                 </p>
             </div>

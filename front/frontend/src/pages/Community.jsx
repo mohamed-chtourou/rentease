@@ -1,9 +1,18 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './InfoPages.css';
 
 const Community = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="info-page">
+            <div className="page-nav-header">
+                <Link to="/" className="logo-home-link">
+                    <img src="/logo.png" alt="RentEase" className="page-logo" />
+                </Link>
+                <button className="back-link" onClick={() => navigate(-1)}>← Retour</button>
+            </div>
             <section className="hero-panel">
                 <p className="eyebrow">Community</p>
                 <h1>Community Forum</h1>

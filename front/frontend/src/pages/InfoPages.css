@@ -6,6 +6,48 @@
   font-family: 'Poppins', Arial, sans-serif;
 }
 
+.page-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.logo-home-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.page-logo {
+  height: 80px;
+  width: auto;
+  transition: opacity 0.2s ease;
+}
+
+.page-logo:hover {
+  opacity: 0.8;
+}
+
+.back-link {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: white;
+  color: #08464f;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.back-link:hover {
+  background: #f5f5f5;
+  border-color: #08464f;
+}
+
 .hero-panel {
   background: linear-gradient(135deg, #fff493 0%, #c0ce73 40%, #6f9361 100%);
   border-radius: 20px;

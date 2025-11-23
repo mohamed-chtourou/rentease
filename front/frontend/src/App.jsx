@@ -11,7 +11,7 @@ import RentOptionsSection from './components/RentOptionsSection';
 import HighlightsSection from './components/HighlightsSection';
 import Footer from './components/Footer';
 import { mockListings } from './data/mockListings';
-import Rentals from './pages/Rentals';
+import Rooms from './components/Rooms';
 import { HostOnboarding } from './pages/AuthPlaceholder';
 import LoginSignup from './components/LoginSignup';
 import About from './pages/About';
@@ -30,6 +30,8 @@ import Report from './pages/Report';
 import HostResources from './pages/HostResources';
 import Community from './pages/Community';
 import Responsible from './pages/Responsible';
+import Profile from './pages/Profile';
+import Messages from './pages/Messages';
 import './App.css';
 
 // Home page content extracted for routing clarity
@@ -90,13 +92,18 @@ function App() {
 
         fetchListings();
     }, []);
+    const listingsWithoutRooms = useMemo(
+        () => listings.filter((listing) => (listing.type || '').toLowerCase() !== 'room'),
+        [listings],
+    );
+
 
     const visibleListings = useMemo(() => {
         if (lastQuery) {
-            return searchResults;
+            return searchResults.filter((listing) => (listing.type || '').toLowerCase() !== 'room');
         }
-        return listings;
-    }, [lastQuery, listings, searchResults]);
+        return listingsWithoutRooms;
+    }, [lastQuery, listingsWithoutRooms, searchResults]);
 
     const matchesQueryLocally = (listing, params) => {
         const query = params.location?.toLowerCase();
@@ -172,16 +179,30 @@ function App() {
                                     />
                                 )}
                             />
-                            <Route path="/rentals" element={<Rentals />} />
+                            <Route path="/rooms" element={<Rooms />} />
                             <Route path="/listing/:id" element={<PropertyDetails listings={listingsForDetails} />} />
                             <Route path="/favorites" element={<Favorites listings={listings} />} />
                             <Route path="/login" element={<LoginSignup />} />
                             <Route path="/signup" element={<LoginSignup />} />
+                            <Route path="/profile" element={<Profile listings={listings} />} />
                             <Route path="/host" element={<HostOnboarding />} />
                             <Route path="/about" element={<About />} />
                             <Route path="/contact" element={<Contact />} />
                             <Route path="/help" element={<Faq />} />
                             <Route path="/faq" element={<Faq />} />
+                            {/* Informational & policy pages */}
+                            <Route path="/legal" element={<Legal />} />
+                            <Route path="/careers" element={<Careers />} />
+                            <Route path="/press" element={<Press />} />
+                            <Route path="/blog" element={<Blog />} />
+                            <Route path="/safety" element={<Safety />} />
+                            <Route path="/cancellation" element={<Cancellation />} />
+                            <Route path="/trust" element={<Trust />} />
+                            <Route path="/report" element={<Report />} />
+                            <Route path="/host-resources" element={<HostResources />} />
+                            <Route path="/community" element={<Community />} />
+                            <Route path="/responsible-hosting" element={<Responsible />} />
+                            <Route path="/messages" element={<Messages />} />
                         </Routes>
                         <Footer />
                     </div>

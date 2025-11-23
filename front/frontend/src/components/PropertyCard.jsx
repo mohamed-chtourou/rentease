@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './PropertyCard.css';
 import { useFavorites } from '../contexts/FavoritesContext';
 
@@ -24,8 +25,10 @@ const PropertyCard = ({ listing }) => {
         return `★ ${score} (${count})`;
     }, [listing.rating, listing.reviewCount, listing.reviews]);
 
+    const navigate = useNavigate();
     const handleRequestTour = () => {
-        alert(`Demande de visite pour: ${listing.title}`);
+        // Navigation vers la page détail avec l'ancre du formulaire
+        navigate(`/listing/${listing._id}#demande-visite`);
     };
 
     return (
@@ -78,23 +81,34 @@ const PropertyCard = ({ listing }) => {
 
                 <p className="property-availability">{formatAvailability(listing.availability)}</p>
 
-                <button
-                    className="request-tour-button"
-                    onClick={handleRequestTour}
-                >
-                    <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
+                <div className="card-actions">
+                    <button
+                        type="button"
+                        className="request-tour-button"
+                        onClick={handleRequestTour}
+                        aria-label={`Demander une visite pour ${listing.title}`}
                     >
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                    Voir le détail
-                </Link>
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                        >
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        Demander une visite
+                    </button>
+                    <Link
+                        to={`/listing/${listing._id}`}
+                        className="details-link"
+                        aria-label={`Voir le détail de ${listing.title}`}
+                    >
+                        Voir le détail →
+                    </Link>
+                </div>
             </div>
         </div>
     );

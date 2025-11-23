@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import SearchBar from './SearchBar';
 import UserMenu from './UserMenu';
-import './Header.css';
 
 const Header = ({ onSearch, isSearching = false }) => {
     const [view, setView] = useState('Homes');
@@ -12,7 +11,7 @@ const Header = ({ onSearch, isSearching = false }) => {
     const { isAuthenticated } = useAuth();
 
     useEffect(() => {
-        if (location.pathname.startsWith('/rentals')) {
+         if (location.pathname.startsWith('/rooms')) {
             setView('Rooms');
         } else {
             setView('Homes');
@@ -44,7 +43,7 @@ const Header = ({ onSearch, isSearching = false }) => {
                     <button
                         type="button"
                         className={`nav-item ${view === 'Rooms' ? 'active' : ''}`}
-                        onClick={() => handleTabChange('Rooms', '/rentals?type=room')}
+                        onClick={() => handleTabChange('Rooms', '/rooms')}
                     >
                         <img src="/room-icon.png" alt="" />
                         <span>Rooms</span>
@@ -52,7 +51,7 @@ const Header = ({ onSearch, isSearching = false }) => {
                 </div>
                 <div className="user-actions">
                     <Link to="/host" className="host-button">Become a host</Link>
-                    <Link to="/favorites" className="chat-button favorites-button" aria-label="Favoris">
+                    <Link to="/favorites" className="favorites-button" aria-label="Favoris">
                         <span aria-hidden="true">♥</span>
                     </Link>
                     <Link to="/messages" className="chat-button" aria-label="Messages">

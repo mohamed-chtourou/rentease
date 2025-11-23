@@ -10,6 +10,8 @@ const listingRoutes = require('./routes/listingRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
 const userRoutes = require('./routes/userRoutes');
 const messageRoutes = require('./routes/messageRoutes');
+const visitRoutes = require('./routes/visitRoutes');
+const allVisitRoutes = require('./routes/allVisitRoutes');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -45,6 +47,10 @@ app.use('/api/listings/:listingId/reviews', reviewRoutes);
 app.use('/api/users', userRoutes);
 // Contact messages routes: /api/messages
 app.use('/api/messages', messageRoutes);
+// Visit requests routes: /api/listings/:listingId/visits
+app.use('/api/listings/:listingId/visits', visitRoutes);
+// Global visit requests (dashboard/admin)
+app.use('/api/visits', allVisitRoutes);
 
 // Start server
 app.listen(port, () => {

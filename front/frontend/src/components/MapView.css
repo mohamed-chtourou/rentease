@@ -23,22 +23,39 @@
     gap: 0.5rem;
 }
 
+/* Favorite toggle (map popup) aligned with card style */
 .favorite-dot {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 999px;
-    width: 38px;
-    height: 38px;
+    background: #fff;
+    color: var(--brand-mid, #f0f4f3);
+    border: 1px solid rgba(8,70,79,0.25);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
     display: grid;
     place-items: center;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    line-height: 1;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    backdrop-filter: blur(6px);
+    transition: background .25s ease, transform .25s ease, box-shadow .25s ease, color .25s ease;
+}
+
+.favorite-dot:hover {
+    transform: translateY(-2px) scale(1.08);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
 
 .favorite-dot.active {
-    background: #fee2e2;
-    border-color: #fca5a5;
-    color: #b91c1c;
+    background: var(--brand-deep, #08464F);
+    border-color: var(--brand-deep, #08464F);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(8,70,79,0.35);
+}
+
+.favorite-dot:focus-visible {
+    outline: 2px solid var(--brand-olive, #C0CE73);
+    outline-offset: 3px;
 }
 
 .popup-title {

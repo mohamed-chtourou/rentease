@@ -31,6 +31,11 @@ const reviewSchema = new mongoose.Schema({
     userName: {
         type: String,
         default: 'Locataire Anonyme'
+    },
+    // Durée du séjour déclarée par l'utilisateur (optionnel)
+    stayDuration: {
+        type: String,
+        trim: true
     }
 }, { timestamps: true });
 

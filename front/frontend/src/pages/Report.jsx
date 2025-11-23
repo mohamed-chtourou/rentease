@@ -1,10 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './InfoPages.css';
 
 const Report = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="info-page">
+            <div className="page-nav-header">
+                <Link to="/" className="logo-home-link">
+                    <img src="/logo.png" alt="RentEase" className="page-logo" />
+                </Link>
+                <button className="back-link" onClick={() => navigate(-1)}>← Retour</button>
+            </div>
             <section className="hero-panel">
                 <p className="eyebrow">Report</p>
                 <h1>Report an Issue</h1>

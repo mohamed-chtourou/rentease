@@ -2,7 +2,9 @@ import React, { useMemo, useState } from 'react';
 import axios from 'axios';
 import './ContactHostForm.css';
 
-const ContactHostForm = ({ listingId, listingTitle, hostName = 'Host', hostEmail }) => {
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
+const ContactHostForm = ({ listingId, listingTitle, hostName = 'Host', hostEmail, onSent }) => {
     const [message, setMessage] = useState('');
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState('idle');
@@ -19,7 +21,7 @@ const ContactHostForm = ({ listingId, listingTitle, hostName = 'Host', hostEmail
         setStatusMessage('');
 
         try {
-            await axios.post('http://localhost:5000/api/messages', {
+            const res = await axios.post(`${API_BASE_URL}/api/messages`, {
                 email,
                 message,
                 listingId,
@@ -30,10 +32,15 @@ const ContactHostForm = ({ listingId, listingTitle, hostName = 'Host', hostEmail
             setStatus('success');
             setStatusMessage("Message envoyé ! L'hôte vous répondra rapidement.");
             setMessage('');
+            setEmail('');
+            if (typeof onSent === 'function') {
+                try { onSent(listingId, res.data); } catch (_) {}
+            }
         } catch (err) {
             console.error('Erreur lors de lenvoi du message', err);
             setStatus('error');
-            setStatusMessage('Impossible denvoyer votre message pour le moment. Veuillez réessayer.');
+            const apiMessage = err.response?.data?.message || "Impossible d'envoyer votre message pour le moment. Veuillez réessayer.";
+            setStatusMessage(apiMessage);
         }
     };
 

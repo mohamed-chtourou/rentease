@@ -1,0 +1,37 @@
+/* Layout inspired by messaging apps */
+.messages-page { width:100%; max-width:1400px; margin:1.5rem auto; display:grid; grid-template-columns:360px 1fr; height:calc(100vh - 60px); }
+.messages-sidebar { background:#1c1f23; color:#f1f5f9; display:flex; flex-direction:column; border-radius:16px; margin:0 1rem 1rem; overflow:hidden; box-shadow:0 8px 28px -6px rgba(0,0,0,.35); }
+.sidebar-header { padding:1rem 1.1rem .75rem; border-bottom:1px solid #2a2f35; display:flex; flex-direction:column; gap:.6rem; }
+.sidebar-header h2 { margin:0; font-size:1.1rem; font-weight:600; }
+.search-box { position:relative; }
+.search-box input { width:100%; background:#2a2f35; border:1px solid #343a40; border-radius:12px; padding:.65rem .9rem; color:#e2e8f0; font-size:.85rem; }
+.tabs { display:flex; gap:.5rem; flex-wrap:wrap; }
+.tabs button { background:#2a2f35; border:none; color:#94a3b8; padding:.45rem .75rem; font-size:.7rem; font-weight:600; letter-spacing:.05em; border-radius:8px; cursor:pointer; }
+.tabs button.active { background:#0f4747; color:#fff; }
+.conversation-scroll { flex:1; overflow-y:auto; padding:.4rem .6rem 1rem; scrollbar-width:thin; }
+.conv-item { display:flex; gap:.75rem; padding:.6rem .55rem .55rem; border-radius:12px; cursor:pointer; position:relative; transition:background .15s; }
+.conv-item:hover { background:#273037; }
+.conv-item.active { background:#0f4747; }
+.avatar { width:42px; height:42px; border-radius:50%; background:#334155; display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff; font-size:.85rem; flex-shrink:0; }
+.conv-body { flex:1; min-width:0; }
+.conv-title { margin:0; font-size:.85rem; font-weight:600; color:#f8fafc; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.conv-snippet { margin:.15rem 0 0; font-size:.7rem; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.conv-meta { display:flex; flex-direction:column; align-items:flex-end; gap:.25rem; }
+.time { font-size:.6rem; color:#64748b; }
+.badge-unread { background:#2563eb; color:#fff; font-size:.6rem; padding:.25rem .45rem; border-radius:999px; font-weight:700; }
+.thread-pane { margin:0 1rem 1rem 0; background:#fff; border-radius:16px; display:flex; flex-direction:column; box-shadow:0 8px 28px -6px rgba(0,0,0,.15); overflow:hidden; }
+.thread-header { padding:.9rem 1rem; border-bottom:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center; }
+.thread-header h3 { margin:0; font-size:1rem; font-weight:600; color:#0f172a; }
+.thread-messages { flex:1; overflow-y:auto; padding:1rem; display:flex; flex-direction:column; gap:.75rem; background:#f8fafc; }
+.bubble { background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:.6rem .8rem; max-width:560px; box-shadow:0 4px 12px rgba(0,0,0,.04); }
+.bubble-header { display:flex; justify-content:space-between; font-size:.65rem; color:#64748b; margin-bottom:.25rem; }
+.bubble-body { font-size:.8rem; color:#1e293b; line-height:1.4; }
+.status-pill { font-size:.55rem; font-weight:700; padding:.2rem .45rem; border-radius:6px; text-transform:uppercase; letter-spacing:.05em; }
+.pill-new { background:#2563eb; color:#fff; }
+.pill-read { background:#16a34a; color:#fff; }
+.pill-archived { background:#64748b; color:#fff; }
+.empty-thread { margin:auto; text-align:center; color:#64748b; font-size:.85rem; }
+.mark-read-btn { background:#0f4747; border:none; color:#fff; padding:.45rem .8rem; font-size:.7rem; font-weight:600; border-radius:8px; cursor:pointer; }
+.mark-read-btn:hover { background:#146b6b; }
+.error-inline { background:#fef2f2; color:#991b1b; border:1px solid #fecaca; padding:.6rem .75rem; border-radius:10px; font-size:.7rem; }
+@media (max-width:940px){ .messages-page{ grid-template-columns:1fr; height:auto; } .thread-pane{ margin:1rem; } .messages-sidebar{ margin:0 1rem; } }

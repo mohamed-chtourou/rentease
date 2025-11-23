@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './InfoPages.css';
 
 const Contact = () => {
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
@@ -17,6 +19,12 @@ const Contact = () => {
 
   return (
     <div className="info-page">
+      <div className="page-nav-header">
+        <Link to="/" className="logo-home-link">
+          <img src="/logo.png" alt="RentEase" className="page-logo" />
+        </Link>
+        <button className="back-link" onClick={() => navigate(-1)}>← Retour</button>
+      </div>
       <section className="hero-panel">
         <p className="eyebrow">Contact</p>
         <h1>Une question, une idée, besoin d&apos;aide ?</h1>

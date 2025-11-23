@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useFavorites } from '../contexts/FavoritesContext';
 import { mockListings } from '../data/mockListings';
 import PropertyCard from '../components/PropertyCard';
 import './Favorites.css';
 
 const Favorites = ({ listings = mockListings }) => {
+    const navigate = useNavigate();
     const { favorites } = useFavorites();
 
     const favoriteListings = useMemo(
@@ -15,6 +16,12 @@ const Favorites = ({ listings = mockListings }) => {
 
     return (
         <main className="favorites-page">
+            <div className="page-nav-header">
+                <Link to="/" className="logo-home-link">
+                    <img src="/logo.png" alt="RentEase" className="page-logo" />
+                </Link>
+                <button className="back-link" onClick={() => navigate(-1)}>← Retour</button>
+            </div>
             <div className="favorites-header">
                 <h1>Vos favoris</h1>
                 <p className="muted">Retrouvez rapidement les annonces que vous avez enregistrées.</p>

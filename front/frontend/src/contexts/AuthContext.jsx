@@ -16,27 +16,40 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check if user is stored in localStorage on mount
-    const userInfo = localStorage.getItem('userInfo');
-    if (userInfo) {
+    // Restauration depuis localStorage (remember) ou sessionStorage
+    const stored = localStorage.getItem('userInfo') || sessionStorage.getItem('userInfo');
+    if (stored) {
       try {
-        setUser(JSON.parse(userInfo));
+        setUser(JSON.parse(stored));
       } catch (error) {
-        console.error('Error parsing user info:', error);
+        console.error('Erreur de parsing userInfo:', error);
         localStorage.removeItem('userInfo');
+        sessionStorage.removeItem('userInfo');
       }
     }
     setLoading(false);
   }, []);
 
-  const login = (userData) => {
+  const persistUser = (userData, remember = true) => {
+    const serialized = JSON.stringify(userData);
+    if (remember) {
+      localStorage.setItem('userInfo', serialized);
+      sessionStorage.removeItem('userInfo');
+    } else {
+      sessionStorage.setItem('userInfo', serialized);
+      localStorage.removeItem('userInfo');
+    }
+  };
+
+  const login = (userData, remember = true) => {
     setUser(userData);
-    localStorage.setItem('userInfo', JSON.stringify(userData));
+    persistUser(userData, remember);
   };
 
   const logout = () => {
     setUser(null);
     localStorage.removeItem('userInfo');
+    sessionStorage.removeItem('userInfo');
   };
 
   const value = {

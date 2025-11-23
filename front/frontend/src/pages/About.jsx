@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './InfoPages.css';
 
 const values = [
@@ -35,14 +35,23 @@ const team = [
   },
 ];
 
-const About = () => (
-  <div className="info-page">
-    <section className="hero-panel">
-      <p className="eyebrow">À propos</p>
-      <h1>La plateforme qui rapproche les personnes et les lieux</h1>
-      <p className="lead">
-        RentEase facilite la mise en relation entre propriétaires et locataires. Notre mission : offrir une expérience
-        fluide, fiable et sécurisée pour trouver le bon logement, à court ou long terme.
+const About = () => {
+  const navigate = useNavigate();
+
+  return (
+    <div className="info-page">
+      <div className="page-nav-header">
+        <Link to="/" className="logo-home-link">
+          <img src="/logo.png" alt="RentEase" className="page-logo" />
+        </Link>
+        <button className="back-link" onClick={() => navigate(-1)}>← Retour</button>
+      </div>
+      <section className="hero-panel">
+        <p className="eyebrow">À propos</p>
+        <h1>La plateforme qui rapproche les personnes et les lieux</h1>
+        <p className="lead">
+          RentEase facilite la mise en relation entre propriétaires et locataires. Notre mission : offrir une expérience
+          fluide, fiable et sécurisée pour trouver le bon logement, à court ou long terme.
       </p>
       <div className="stat-row">
         <div className="stat-card">
@@ -114,6 +123,7 @@ const About = () => (
       </div>
     </section>
   </div>
-);
+  );
+};
 
 export default About;

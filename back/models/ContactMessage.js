@@ -6,6 +6,7 @@ const contactMessageSchema = new mongoose.Schema({
         required: [true, 'Un email est requis pour contacter un hôte'],
         trim: true,
         lowercase: true,
+        match: [/.+@.+\..+/, 'Veuillez saisir un email valide'],
     },
     message: {
         type: String,
@@ -24,6 +25,11 @@ const contactMessageSchema = new mongoose.Schema({
     hostName: {
         type: String,
         default: 'Host',
+    },
+    hostEmail: {
+        type: String,
+        trim: true,
+        lowercase: true,
     },
     status: {
         type: String,
