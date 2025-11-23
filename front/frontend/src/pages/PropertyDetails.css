@@ -1,0 +1,285 @@
+.property-details.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.back-link {
+    background: none;
+    border: none;
+    color: #4e7cff;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 0.75rem;
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.badge-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    margin: 0;
+    color: #2563eb;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.rating-chip {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fcd34d;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.availability-chip {
+    background: #ecfdf3;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.subline {
+    margin: 0.35rem 0 0;
+    color: #4b5563;
+}
+
+.price-block {
+    text-align: right;
+}
+
+.price {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.availability-sub {
+    margin: 0.35rem 0;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.favorite-toggle {
+    margin-top: 0.5rem;
+    border: 1px solid #e5e7eb;
+    background: white;
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    cursor: pointer;
+}
+
+.favorite-toggle.active {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-color: #fecdd3;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.gallery img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+}
+
+.details-main {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 35, 80, 0.05);
+    padding-bottom: 1rem;
+}
+
+.hero-image {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    display: block;
+}
+
+.stats {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    font-weight: 700;
+    flex-wrap: wrap;
+}
+
+.description {
+    padding: 0 1rem 1.5rem;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+.details-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.map-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 35, 80, 0.05);
+}
+
+.map-card.muted {
+    text-align: center;
+    color: #6b7280;
+}
+
+.map-header h3 {
+    margin: 0;
+}
+
+.map-header p {
+    margin: 0.2rem 0 0.8rem;
+    color: #6b7280;
+}
+
+.insights-card {
+    border-top: 1px solid #e5e7eb;
+    padding: 1rem;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.insight-title {
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+}
+
+.tag-list li {
+    background: #f3f4f6;
+    padding: 6px 10px;
+    border-radius: 10px;
+}
+
+.reviews-section {
+    padding: 1rem;
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+}
+
+.review-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 12px;
+    background: #f8fafc;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.review-author {
+    font-weight: 700;
+}
+
+.review-rating {
+    color: #b45309;
+    font-weight: 700;
+}
+
+.review-meta {
+    color: #4b5563;
+    font-size: 0.9rem;
+}
+
+.review-comment {
+    margin-top: 6px;
+    color: #334155;
+    line-height: 1.4;
+}
+
+.availability-card, .contact-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 35, 80, 0.05);
+}
+
+.availability-status {
+    font-weight: 700;
+    color: #166534;
+    margin: 0.1rem 0;
+}
+
+.availability-date {
+    color: #2563eb;
+    font-weight: 600;
+    margin: 0.1rem 0 0.4rem;
+}
+
+.visit-list {
+    margin: 0;
+    padding-left: 1rem;
+    color: #4b5563;
+}
+
+.contact-line {
+    margin: 0.2rem 0;
+    color: #374151;
+}
+
+@media (max-width: 960px) {
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-block {
+        text-align: left;
+    }
+}

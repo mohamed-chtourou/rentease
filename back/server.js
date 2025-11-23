@@ -9,6 +9,7 @@ const cors = require('cors');
 const listingRoutes = require('./routes/listingRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
 const userRoutes = require('./routes/userRoutes');
+const messageRoutes = require('./routes/messageRoutes');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -42,6 +43,8 @@ app.use('/api/listings', listingRoutes);
 app.use('/api/listings/:listingId/reviews', reviewRoutes);
 // User authentication routes: /api/users
 app.use('/api/users', userRoutes);
+// Contact messages routes: /api/messages
+app.use('/api/messages', messageRoutes);
 
 // Start server
 app.listen(port, () => {

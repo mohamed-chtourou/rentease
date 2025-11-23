@@ -33,6 +33,19 @@
     transform: scale(1.08);
 }
 
+.property-rating {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 6px 10px;
+    font-weight: 700;
+    color: #b45309;
+    border: 1px solid #fcd34d;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
 /* Favorite Button */
 .favorite-button {
     position: absolute;
@@ -101,7 +114,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
     color: #555;
     font-size: 0.95rem;
 }
@@ -112,6 +125,12 @@
 
 .detail-separator {
     color: #ccc;
+}
+
+.property-availability {
+    margin: 0 0 14px;
+    font-weight: 600;
+    color: #2563eb;
 }
 
 /* Request Tour Button */
