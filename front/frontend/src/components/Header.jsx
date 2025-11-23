@@ -3,8 +3,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import SearchBar from './SearchBar';
 import UserMenu from './UserMenu';
+import './Header.css';
 
-const Header = ({ onSearch }) => {
+const Header = ({ onSearch, isSearching = false }) => {
     const [view, setView] = useState('Homes');
     const navigate = useNavigate();
     const location = useLocation();
@@ -51,6 +52,9 @@ const Header = ({ onSearch }) => {
                 </div>
                 <div className="user-actions">
                     <Link to="/host" className="host-button">Become a host</Link>
+                    <Link to="/favorites" className="chat-button favorites-button" aria-label="Favoris">
+                        <span aria-hidden="true">♥</span>
+                    </Link>
                     <Link to="/messages" className="chat-button" aria-label="Messages">
                         <img src="/message-icon.png" alt="Messages" />
                     </Link>
@@ -64,7 +68,7 @@ const Header = ({ onSearch }) => {
                 </div>
             </div>
             <div className="header-search-row">
-                <SearchBar onSearch={onSearch} />
+                <SearchBar onSearch={onSearch} isSearching={isSearching} />
             </div>
         </header>
     );

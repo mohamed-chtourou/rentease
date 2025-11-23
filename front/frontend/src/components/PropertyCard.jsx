@@ -1,46 +1,60 @@
-import React, { useState } from 'react';
+import React, { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import './PropertyCard.css';
+import { useFavorites } from '../contexts/FavoritesContext';
+
+const formatAvailability = (availability) => {
+    if (!availability) return 'Disponibilité sur demande';
+    if (availability.status === 'coming_soon') return 'Bientôt disponible';
+    if (availability.status === 'booked') return 'Réservé actuellement';
+    if (availability.status === 'available' && availability.availableFrom) {
+        return `Libre dès le ${new Date(availability.availableFrom).toLocaleDateString('fr-FR')}`;
+    }
+    return 'Disponible';
+};
 
 const PropertyCard = ({ listing }) => {
-    const [isFavorite, setIsFavorite] = useState(false);
+    const { isFavorite, toggleFavorite } = useFavorites();
 
-    const toggleFavorite = () => {
-        setIsFavorite(!isFavorite);
-    };
-
-    const handleRequestTour = () => {
-        // Logique pour demander une visite
-        alert(`Demande de visite pour: ${listing.title}`);
-    };
+    const ratingLabel = useMemo(() => {
+        const score = listing.rating || (listing.reviews?.length
+            ? Math.round((listing.reviews.reduce((sum, review) => sum + (review.rating || 0), 0) / listing.reviews.length) * 10) / 10
+            : null);
+        const count = listing.reviewCount || listing.reviews?.length || 0;
+        if (!score) return null;
+        return `★ ${score} (${count})`;
+    }, [listing.rating, listing.reviewCount, listing.reviews]);
 
     return (
         <div className="property-card">
-            {/* Image avec bouton favori */}
             <div className="property-image-container">
-                <img 
-                    src={listing.image} 
-                    alt={listing.title}
-                    className="property-image"
-                />
-                <button 
-                    className={`favorite-button ${isFavorite ? 'active' : ''}`}
-                    onClick={toggleFavorite}
+                <Link to={`/listing/${listing._id}`} className="image-link" aria-label={`Voir ${listing.title}`}>
+                    <img
+                        src={listing.image}
+                        alt={listing.title}
+                        className="property-image"
+                    />
+                </Link>
+                <button
+                    className={`favorite-button ${isFavorite(listing._id) ? 'active' : ''}`}
+                    onClick={() => toggleFavorite(listing._id)}
                     aria-label="Add to favorites"
+                    aria-pressed={isFavorite(listing._id)}
                 >
-                    <svg 
-                        width="24" 
-                        height="24" 
-                        viewBox="0 0 24 24" 
-                        fill={isFavorite ? "currentColor" : "none"}
-                        stroke="currentColor" 
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill={isFavorite(listing._id) ? "currentColor" : "none"}
+                        stroke="currentColor"
                         strokeWidth="2"
                     >
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                     </svg>
                 </button>
+                {ratingLabel && <span className="property-rating">{ratingLabel}</span>}
             </div>
 
-            {/* Informations de la propriété */}
             <div className="property-info">
                 <div className="property-header">
                     <h3 className="property-title">{listing.title}</h3>
@@ -57,28 +71,26 @@ const PropertyCard = ({ listing }) => {
                     </span>
                     <span className="detail-separator">|</span>
                     <span className="detail-item">
-                        {listing.surface}m
+                        {listing.surface} m²
                     </span>
                 </div>
 
-                {/* Bouton Request a tour */}
-                <button 
-                    className="request-tour-button"
-                    onClick={handleRequestTour}
-                >
-                    <svg 
-                        width="20" 
-                        height="20" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
+                <p className="property-availability">{formatAvailability(listing.availability)}</p>
+
+                <Link to={`/listing/${listing._id}`} className="request-tour-button">
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
                         strokeWidth="2"
                     >
                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                         <polyline points="9 22 9 12 15 12 15 22"></polyline>
                     </svg>
-                    Request a tour
-                </button>
+                    Voir le détail
+                </Link>
             </div>
         </div>
     );
