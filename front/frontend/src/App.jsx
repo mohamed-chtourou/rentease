@@ -18,6 +18,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Faq from './pages/Faq';
 import PropertyDetails from './pages/PropertyDetails';
+import Favorites from './pages/Favorites';
 import Legal from './pages/Legal';
 import Careers from './pages/Careers';
 import Press from './pages/Press';
@@ -173,6 +174,7 @@ function App() {
                             />
                             <Route path="/rentals" element={<Rentals />} />
                             <Route path="/listing/:id" element={<PropertyDetails listings={listingsForDetails} />} />
+                            <Route path="/favorites" element={<Favorites listings={listings} />} />
                             <Route path="/login" element={<LoginSignup />} />
                             <Route path="/signup" element={<LoginSignup />} />
                             <Route path="/host" element={<HostOnboarding />} />

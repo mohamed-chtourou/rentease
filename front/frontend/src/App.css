@@ -81,7 +81,7 @@ body {
     gap: 1.4rem;
     padding: 0.5rem 1.4rem;
     font-weight: 500;
-    color: #555;
+    color: #2d5a45;
     cursor: pointer;
     position: relative;
     font-size: 1.4rem;
@@ -93,8 +93,8 @@ body {
 }
 
 .nav-item.active {
-    color: rgb(55, 81, 50);
-    font-weight: 600;
+    color: #3f7c5c;
+    font-weight: 700;
 }
 
 /* Ligne noire sous l'onglet actif */
@@ -105,7 +105,7 @@ body {
     left: 8%;
     width: 84%;
     height: 4px;
-    background-color: rgb(33, 45, 32);
+    background-color: #4f9c72;
     border-radius: 4px;
 }
 
@@ -153,6 +153,17 @@ body {
 .menu-button:hover {
     background-color: rgba(67, 87, 58, 0.04);
     color: #598f4e;
+}
+
+.favorites-button {
+    color: #b1361e;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.favorites-button:hover {
+    background-color: rgba(177, 54, 30, 0.08);
 }
 
 /* Logo sizing so it doesn't push into the center nav */
