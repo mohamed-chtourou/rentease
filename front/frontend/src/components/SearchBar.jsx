@@ -10,15 +10,10 @@ const SearchBar = ({ onSearch, isSearching = false }) => {
         e.preventDefault();
 
         const params = {};
-        if (location.trim()) params.location = location.trim();
+        if (location) params.location = location;
         if (checkIn) params.checkIn = checkIn;
         if (checkOut) params.checkOut = checkOut;
-        if (guests && guests > 1) params.guests = guests;
-
-        if (Object.keys(params).length === 0) {
-            onSearch({ reset: true });
-            return;
-        }
+        params.guests = guests; // Always send guests count
 
         await onSearch(params);
     };

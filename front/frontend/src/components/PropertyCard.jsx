@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import './PropertyCard.css';
 import { useFavorites } from '../contexts/FavoritesContext';
 
@@ -25,16 +24,18 @@ const PropertyCard = ({ listing }) => {
         return `★ ${score} (${count})`;
     }, [listing.rating, listing.reviewCount, listing.reviews]);
 
+    const handleRequestTour = () => {
+        alert(`Demande de visite pour: ${listing.title}`);
+    };
+
     return (
         <div className="property-card">
             <div className="property-image-container">
-                <Link to={`/listing/${listing._id}`} className="image-link" aria-label={`Voir ${listing.title}`}>
-                    <img
-                        src={listing.image}
-                        alt={listing.title}
-                        className="property-image"
-                    />
-                </Link>
+                <img
+                    src={listing.image}
+                    alt={listing.title}
+                    className="property-image"
+                />
                 <button
                     className={`favorite-button ${isFavorite(listing._id) ? 'active' : ''}`}
                     onClick={() => toggleFavorite(listing._id)}
@@ -77,7 +78,10 @@ const PropertyCard = ({ listing }) => {
 
                 <p className="property-availability">{formatAvailability(listing.availability)}</p>
 
-                <Link to={`/listing/${listing._id}`} className="request-tour-button">
+                <button
+                    className="request-tour-button"
+                    onClick={handleRequestTour}
+                >
                     <svg
                         width="20"
                         height="20"

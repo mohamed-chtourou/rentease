@@ -41,6 +41,55 @@ A full‑stack rental platform prototype (React + Express + MongoDB).
    # App: http://localhost:5173
    ```
 
+## Collaborator Setup
+
+If you're joining the project, follow these steps for a clean, consistent environment:
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/mohamed-chtourou/rentease.git
+   cd rentease
+   ```
+
+2. **Copy and configure environment variables**
+   ```powershell
+   Copy-Item "back\.env.example" "back\.env"
+   ```
+   Edit `back\.env` and set:
+   - `JWT_SECRET` to a long random string (e.g., generate with `openssl rand -base64 64`)
+   - `MONGODB_URI` to your MongoDB connection string (local or Atlas)
+   - `PORT` defaults to 5000
+
+3. **Install all dependencies**
+   ```bash
+   npm run install:all
+   ```
+   This installs both backend and frontend dependencies.
+
+4. **Run both services**
+   ```bash
+   npm run dev
+   ```
+   Or run separately:
+   ```bash
+   npm run dev --prefix "back"
+   npm run dev --prefix "front/frontend"
+   ```
+
+5. **Verify services are running**
+   - Backend: http://localhost:5000 (should return JSON health check)
+   - Frontend: http://localhost:5173 (Vite dev server URL)
+   - Test auth API:
+     ```powershell
+     curl -X POST http://localhost:5000/api/users/signup -H "Content-Type: application/json" `
+       -d '{ "username": "test", "email": "test@example.com", "password": "Passw0rd!", "role":"Tenant" }'
+     ```
+
+**Important:**
+- Node.js 18+ is required (enforced in `package.json`)
+- MongoDB must be running locally or accessible via your connection string
+- Don't open `index.html` directly—use the Vite dev server URL
+
 ## Notes for contributors
 - API base path is normalized to lowercase plural nouns:
   - `/api/listings`

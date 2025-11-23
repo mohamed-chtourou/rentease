@@ -19,6 +19,17 @@ import Contact from './pages/Contact';
 import Faq from './pages/Faq';
 import PropertyDetails from './pages/PropertyDetails';
 import Favorites from './pages/Favorites';
+import Legal from './pages/Legal';
+import Careers from './pages/Careers';
+import Press from './pages/Press';
+import Blog from './pages/Blog';
+import Safety from './pages/Safety';
+import Cancellation from './pages/Cancellation';
+import Trust from './pages/Trust';
+import Report from './pages/Report';
+import HostResources from './pages/HostResources';
+import Community from './pages/Community';
+import Responsible from './pages/Responsible';
 import './App.css';
 
 // Home page content extracted for routing clarity
@@ -122,25 +133,13 @@ function App() {
     };
 
     const handleNewSearch = async (params) => {
-        if (params?.reset) {
-            setLastQuery(null);
-            setSearchResults([]);
-            setError(null);
-            return;
-        }
-
         setLoading(true);
         setError(null);
         setLastQuery(params);
 
         try {
             const response = await axios.get('http://localhost:5000/api/listings', { params });
-            if (Array.isArray(response.data) && response.data.length > 0) {
-                setSearchResults(response.data);
-            } else {
-                const fallbackResults = listings.filter((listing) => matchesQueryLocally(listing, params));
-                setSearchResults(fallbackResults);
-            }
+            setSearchResults(response.data || []);
         } catch (err) {
             console.error('Erreur lors de la recherche :', err);
             const fallbackResults = listings.filter((listing) => matchesQueryLocally(listing, params));
