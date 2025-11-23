@@ -15,6 +15,17 @@ import LoginSignup from './components/LoginSignup';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Faq from './pages/Faq';
+import Legal from './pages/Legal';
+import Careers from './pages/Careers';
+import Press from './pages/Press';
+import Blog from './pages/Blog';
+import Safety from './pages/Safety';
+import Cancellation from './pages/Cancellation';
+import Trust from './pages/Trust';
+import Report from './pages/Report';
+import HostResources from './pages/HostResources';
+import Community from './pages/Community';
+import Responsible from './pages/Responsible';
 import './App.css';
 // Home page content extracted for routing clarity
 const HomeContent = ({ listings, onSearch, searchResults, loading, error }) => (
@@ -64,6 +75,17 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/help" element={<Faq />} />
               <Route path="/faq" element={<Faq />} />
+              <Route path="/legal" element={<Legal />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/press" element={<Press />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/safety" element={<Safety />} />
+              <Route path="/cancellation" element={<Cancellation />} />
+              <Route path="/trust" element={<Trust />} />
+              <Route path="/report" element={<Report />} />
+              <Route path="/host-resources" element={<HostResources />} />
+              <Route path="/community" element={<Community />} />
+              <Route path="/responsible-hosting" element={<Responsible />} />
             </Routes>
             <Footer />
           </div>

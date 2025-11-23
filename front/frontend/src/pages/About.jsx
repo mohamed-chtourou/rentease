@@ -19,18 +19,18 @@ const values = [
 
 const team = [
   {
-    name: 'Nadia Ben Salem',
+    name: 'Mohamed Chtourou',
     role: 'CEO & Co‑founder',
     bio: "Entrepreneure passionnée par le logement accessible et l'expérience utilisateur.",
   },
   {
-    name: 'Youssef Gharbi',
+    name: 'Rim Sta',
     role: 'CTO & Co‑founder',
     bio: 'Ingénieur produit, responsable des performances, de la sécurité et des intégrations.',
   },
   {
-    name: 'Lina Trabelsi',
-    role: 'Head of Community',
+    name: 'Malak Lahiani',
+    role: 'Head of Community & co‑founder',
     bio: 'Experte relation client, elle accompagne les hôtes et locataires au quotidien.',
   },
 ];

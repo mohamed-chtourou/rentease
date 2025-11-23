@@ -39,9 +39,9 @@ const Footer = () => {
                     <h4>Company</h4>
                     <ul>
                         <li><Link to="/about">About Us</Link></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><Link to="/careers">Careers</Link></li>
+                        <li><Link to="/press">Press</Link></li>
+                        <li><Link to="/blog">Blog</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
                     </ul>
                 </div>
@@ -50,21 +50,20 @@ const Footer = () => {
                     <h4>Support</h4>
                     <ul>
                         <li><Link to="/help">Help Center</Link></li>
-                        <li><a href="#">Safety Information</a></li>
-                        <li><a href="#">Cancellation Options</a></li>
-                        <li><a href="#">Trust & Safety</a></li>
-                        <li><a href="#">Report Issue</a></li>
+                        <li><Link to="/safety">Safety Information</Link></li>
+                        <li><Link to="/cancellation">Cancellation Options</Link></li>
+                        <li><Link to="/trust">Trust & Safety</Link></li>
+                        <li><Link to="/report">Report Issue</Link></li>
                     </ul>
                 </div>
 
                 <div className="footer-section">
                     <h4>Hosting</h4>
                     <ul>
-                        <li><a href="#">Become a Host</a></li>
-                        <li><a href="#">Host Resources</a></li>
-                        <li><a href="#">Community Forum</a></li>
-                        <li><a href="#">Hosting Responsibly</a></li>
-                        <li><a href="#">Join a Free Class</a></li>
+                        <li><Link to="/host">Become a Host</Link></li>
+                        <li><Link to="/host-resources">Host Resources</Link></li>
+                        <li><Link to="/community">Community Forum</Link></li>
+                        <li><Link to="/responsible-hosting">Hosting Responsibly</Link></li>
                     </ul>
                 </div>
 
