@@ -86,8 +86,8 @@ const Footer = () => {
                         <button type="button" className="locale-button" aria-label="Change language">English (US)</button>
                         <span className="separator">·</span>
                         <button type="button" className="locale-button" aria-label="Change currency">DT (TND)</button>
-                        <span className="separator">·</span>
-                        <Link to="/help">Support</Link>
+    
+                        
                     </div>
                 </div>
             </div>

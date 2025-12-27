@@ -36,11 +36,11 @@ const MapView = ({ listings = [], loading = false, error = null }) => {
         <div className="map-shell" aria-busy={loading}>
             {error && <div className="map-alert error" role="alert">{error}</div>}
             {!hasLocations && !loading && (
-                <div className="map-alert muted">Aucune localisation disponible pour le moment.</div>
+                <div className="map-alert muted">No location available at this time.</div>
             )}
             {loading && (
                 <div className="map-alert muted" aria-live="polite">
-                    Chargement de la carte et des résultats...
+                    Loading map and results...
                 </div>
             )}
             <MapContainer
@@ -88,7 +88,7 @@ const MapView = ({ listings = [], loading = false, error = null }) => {
                                             </div>
 
                                             <div className="popup-price">
-                                                {listing.price} dt/mois
+                                                {listing.price} dt/month
                                             </div>
 
                                             <div className="popup-details">
@@ -137,7 +137,7 @@ const MapView = ({ listings = [], loading = false, error = null }) => {
                                                         window.location.href = `/listing/${listing._id}`;
                                                     }}
                                                 >
-                                                    Voir les détails →
+                                                    See all details →
                                                 </a>
                                                 <a
                                                     href={`/listing/${listing._id}#contact-host`}
@@ -147,7 +147,7 @@ const MapView = ({ listings = [], loading = false, error = null }) => {
                                                         window.location.href = `/listing/${listing._id}#contact-host`;
                                                     }}
                                                 >
-                                                    Contacter l'hôte
+                                                    Contact Host
                                                 </a>
                                             </div>
                                         </div>

@@ -8,7 +8,7 @@ const PropertyGrid = ({ listings, title = "Our newest Ads" }) => {
             <h2 className="section-title">{title}</h2>
 
             {listings.length === 0 ? (
-                <p className="muted">Aucune annonce à afficher pour le moment.</p>
+                <p className="muted">No ads to display at the moment.</p>
             ) : (
                 <div className="property-grid">
                     {listings.map((listing) => (

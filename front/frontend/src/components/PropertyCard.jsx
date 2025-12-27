@@ -4,13 +4,13 @@ import './PropertyCard.css';
 import { useFavorites } from '../contexts/FavoritesContext';
 
 const formatAvailability = (availability) => {
-    if (!availability) return 'Disponibilité sur demande';
-    if (availability.status === 'coming_soon') return 'Bientôt disponible';
-    if (availability.status === 'booked') return 'Réservé actuellement';
+    if (!availability) return 'Availability upon request';
+    if (availability.status === 'coming_soon') return 'Coming soon';
+    if (availability.status === 'booked') return 'Booked';
     if (availability.status === 'available' && availability.availableFrom) {
-        return `Libre dès le ${new Date(availability.availableFrom).toLocaleDateString('fr-FR')}`;
+        return `Available from the ${new Date(availability.availableFrom).toLocaleDateString('en-EN')}`;
     }
-    return 'Disponible';
+    return 'Avaible';
 };
 
 const PropertyCard = ({ listing }) => {
@@ -99,14 +99,14 @@ const PropertyCard = ({ listing }) => {
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                             <polyline points="9 22 9 12 15 12 15 22"></polyline>
                         </svg>
-                        Demander une visite
+                        Request a visit visit
                     </button>
                     <Link
                         to={`/listing/${listing._id}`}
                         className="details-link"
                         aria-label={`Voir le détail de ${listing.title}`}
                     >
-                        Voir le détail →
+                        See all details →
                     </Link>
                 </div>
             </div>

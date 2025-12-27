@@ -30,16 +30,16 @@ const ContactHostForm = ({ listingId, listingTitle, hostName = 'Host', hostEmail
                 hostEmail,
             });
             setStatus('success');
-            setStatusMessage("Message envoyé ! L'hôte vous répondra rapidement.");
+            setStatusMessage("Message send ! The host will respond to you quickly.");
             setMessage('');
             setEmail('');
             if (typeof onSent === 'function') {
                 try { onSent(listingId, res.data); } catch (_) {}
             }
         } catch (err) {
-            console.error('Erreur lors de lenvoi du message', err);
+            console.error('Error sending message', err);
             setStatus('error');
-            const apiMessage = err.response?.data?.message || "Impossible d'envoyer votre message pour le moment. Veuillez réessayer.";
+            const apiMessage = err.response?.data?.message || "We were unable to send your message at this time. Please try again.";
             setStatusMessage(apiMessage);
         }
     };
@@ -49,10 +49,10 @@ const ContactHostForm = ({ listingId, listingTitle, hostName = 'Host', hostEmail
             <div className="contact-header">
                 <div>
                     <p className="contact-label">Contact host</p>
-                    <h3 className="contact-title">Envoyer un message à {hostName}</h3>
-                    <p className="contact-subtitle">Mentionnez vos dates, vos besoins et comment vous souhaitez échanger.</p>
+                    <h3 className="contact-title">Send a message to {hostName}</h3>
+                    <p className="contact-subtitle">Please specify your dates, your needs, and how you would like to exchange information.</p>
                 </div>
-                <span className="contact-badge" aria-label="Message privé">🔒 Message privé</span>
+                <span className="contact-badge" aria-label="Message privé">🔒Private Message</span>
             </div>
 
             <form className="contact-form" onSubmit={handleSubmit}>
@@ -73,7 +73,7 @@ const ContactHostForm = ({ listingId, listingTitle, hostName = 'Host', hostEmail
                         id="message"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        placeholder={`Bonjour, je suis intéressé(e) par ${listingTitle}. Pouvez-vous me donner plus de détails ?`}
+                        placeholder={`Hello, I am interested in ${listingTitle}. Can you give me more details? ?`}
                         rows={4}
                         required
                     />
@@ -86,9 +86,9 @@ const ContactHostForm = ({ listingId, listingTitle, hostName = 'Host', hostEmail
                         disabled={!canSubmit || status === 'loading'}
                         aria-busy={status === 'loading'}
                     >
-                        {status === 'loading' ? 'Envoi...' : 'Envoyer'}
+                        {status === 'loading' ? 'Sending...' : 'Send'}
                     </button>
-                    <p className="contact-helper">Réponse moyenne &lt; 1h. Les demandes contiennent toutes vos coordonnées.</p>
+                    <p className="contact-helper">Average response &lt; 1h. The applications contain all your contact information.</p>
                 </div>
             </form>
 
