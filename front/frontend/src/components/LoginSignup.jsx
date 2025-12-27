@@ -32,13 +32,13 @@ const LoginSignup = () => {
         } catch (err) {
             // Fallback hors-ligne / erreur serveur: créer session locale minimale
             const fallbackUser = {
-                username: username || email.split('@')[0] || 'Utilisateur',
+                username: username || email.split('@')[0] || 'User',
                 email,
                 role,
                 provider: 'local-fallback',
             };
             login(fallbackUser, rememberMe);
-            setError(err.response?.data?.message || 'Serveur indisponible, session locale créée.');
+            setError(err.response?.data?.message || 'Server unavailable, local session created.');
             navigate('/profile');
         } finally {
             setLoading(false);
@@ -48,14 +48,14 @@ const LoginSignup = () => {
     return (
         <div className="auth-container">
             <div className="auth-form-box">
-                <h2>{isLogin ? 'Se connecter' : "Créer un compte"} RentEase</h2>
+                <h2>{isLogin ? 'Sign in' : "Create an account"} RentEase</h2>
                 
                 {error && <div className="error-message">{error}</div>}
 
                 <form onSubmit={submitHandler} className="auth-form">
                     {!isLogin && (
                         <div className="input-group">
-                            <label htmlFor="username">Nom complet</label>
+                            <label htmlFor="username">Full name</label>
                             <input
                                 id="username"
                                 type="text"
@@ -71,14 +71,14 @@ const LoginSignup = () => {
                         <input
                             id="email"
                             type="email"
-                            placeholder="vous@example.com"
+                            placeholder="you@example.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                     </div>
                     <div className="input-group">
-                        <label htmlFor="password">Mot de passe</label>
+                        <label htmlFor="password">Password</label>
                         <input
                             id="password"
                             type="password"
@@ -90,10 +90,10 @@ const LoginSignup = () => {
                     </div>
                     {!isLogin && (
                         <div className="input-group">
-                            <label htmlFor="role">Rôle</label>
+                            <label htmlFor="role">Role</label>
                             <select id="role" value={role} onChange={(e) => setRole(e.target.value)}>
-                                <option value="Tenant">Locataire</option>
-                                <option value="Host">Hôte</option>
+                                <option value="Tenant">Tenant</option>
+                                <option value="Host">Host</option>
                             </select>
                         </div>
                     )}
@@ -106,17 +106,17 @@ const LoginSignup = () => {
                         Rester connecté·e
                     </label>
                     <button type="submit" disabled={loading}>
-                        {loading ? 'Chargement...' : (isLogin ? 'Se connecter' : "S'inscrire")}
+                        {loading ? 'Loading...' : (isLogin ? 'Sign in' : "Register")}
                     </button>
                 </form>
 
                 <p>
-                    {isLogin ? 'Pas encore de compte ?' : 'Vous avez déjà un compte ?'}
+                    {isLogin ? 'Dont have an account yet?' : 'Do you already have an account?'}
                     <span
                         className="toggle-auth"
                         onClick={() => setIsLogin(!isLogin)}
                     >
-                        {isLogin ? ' Créer un compte' : ' Se connecter'}
+                        {isLogin ? 'Create an account' : 'Sign in'}
                     </span>
                 </p>
             </div>
