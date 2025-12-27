@@ -48,7 +48,7 @@ const HomeContent = ({ listings, onSearch, searchResults, loading, error, lastQu
             <AffordabilitySection listings={listings} />
             <RentOptionsSection />
             <div className="results-container">
-                {loading && <p aria-live="polite">Recherche en cours...</p>}
+                {loading && <p aria-live="polite">Research in progress...</p>}
                 {error && <p className="error" role="alert">{error}</p>}
                 {sourceError && !loading && (
                     <p className="error" role="alert">{sourceError}</p>
@@ -56,8 +56,8 @@ const HomeContent = ({ listings, onSearch, searchResults, loading, error, lastQu
                 {lastQuery && !loading && (
                     <p>
                         {searchResults.length > 0
-                            ? `Affichage de ${searchResults.length} annonces trouvées.`
-                            : 'Aucune annonce trouvée pour votre recherche.'}
+                            ? `Display of ${searchResults.length} ads found.`
+                            : 'No listings were found for your search.'}
                     </p>
                 )}
             </div>
@@ -83,8 +83,8 @@ function App() {
                 }
                 setSourceError(null);
             } catch (err) {
-                console.error('Erreur lors du chargement des annonces', err);
-                setSourceError('Affichage des annonces démo : connexion serveur indisponible.');
+                console.error('Error loading ads', err);
+                setSourceError('Displaying demo ads: server connection unavailable.');
             } finally {
                 setLoading(false);
             }
