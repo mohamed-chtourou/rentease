@@ -34,22 +34,22 @@ const ReviewForm = ({ onAdd }) => {
     <form className="review-form" onSubmit={handleSubmit} aria-label="Ajouter un avis">
       <div className="form-row">
         <label>
-          Nom (optionnel)
+          Name (optionnel)
           <input
             type="text"
             value={tenantName}
             onChange={(e) => setTenantName(e.target.value)}
-            placeholder="Votre nom"
+            placeholder="Your name"
           />
         </label>
         <label>
-          Note
+          Review
           <select value={rating} onChange={(e) => setRating(e.target.value)}>
             {[5,4,3,2,1].map(r => <option key={r} value={r}>{r}</option>)}
           </select>
         </label>
         <label>
-          Durée du séjour
+          Length of stay
           <input
             type="text"
             value={stayDuration}
@@ -59,17 +59,17 @@ const ReviewForm = ({ onAdd }) => {
         </label>
       </div>
       <label className="block">
-        Commentaire
+        Comment
         <textarea
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          placeholder="Votre expérience..."
+          placeholder="Describe your experience.."
           rows={3}
           required
         />
       </label>
       <button type="submit" disabled={submitting || !comment.trim()} className="submit-review-btn">
-        {submitting ? 'Envoi...' : 'Publier l\'avis'}
+        {submitting ? 'Sending...' : 'Published l\'review'}
       </button>
     </form>
   );

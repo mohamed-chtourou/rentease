@@ -39,47 +39,47 @@ const VisitRequestForm = ({ listingId, listingTitle, hostName = 'Hôte', slots =
                 throw new Error(err.message || 'Erreur serveur');
             }
             setStatus('success');
-            setFeedback('Demande envoyée ! Vous recevrez une confirmation prochaine.');
+            setFeedback('Request sent! You will receive a confirmation soon.');
             setNote('');
         } catch (error) {
             setStatus('error');
-            setFeedback(error.message || 'Impossible denvoyer la demande.');
+            setFeedback(error.message || 'Failed to send request.');
         }
     };
 
     return (
         <section className="visit-request" aria-label="Demander une visite" id="demande-visite">
             <div className="visit-header">
-                <h3>Demander une visite</h3>
-                <p className="visit-sub">Planifiez une visite pour "{listingTitle}".</p>
+                <h3>Request a visit</h3>
+                <p className="visit-sub">Planne a visit "{listingTitle}".</p>
             </div>
             <form onSubmit={handleSubmit} className="visit-form">
                 <label className="visit-field" htmlFor="vr-name">
-                    <span>Nom</span>
-                    <input id="vr-name" type="text" value={requesterName} onChange={(e)=>setRequesterName(e.target.value)} placeholder="Votre nom" />
+                    <span>Name</span>
+                    <input id="vr-name" type="text" value={requesterName} onChange={(e)=>setRequesterName(e.target.value)} placeholder="Your nom" />
                 </label>
                 <label className="visit-field" htmlFor="vr-email">
                     <span>Email *</span>
-                    <input id="vr-email" type="email" required value={requesterEmail} onChange={(e)=>setRequesterEmail(e.target.value)} placeholder="vous@example.com" />
+                    <input id="vr-email" type="email" required value={requesterEmail} onChange={(e)=>setRequesterEmail(e.target.value)} placeholder="You@example.com" />
                 </label>
                 <label className="visit-field" htmlFor="vr-date">
-                    <span>Date souhaitée *</span>
+                    <span>Desired date *</span>
                     <input id="vr-date" type="date" required value={preferredDate} onChange={(e)=>setPreferredDate(e.target.value)} />
                 </label>
                 <label className="visit-field" htmlFor="vr-slot">
-                    <span>Créneau</span>
+                    <span>Time</span>
                     <select id="vr-slot" value={timeSlot} onChange={(e)=>setTimeSlot(e.target.value)}>
-                        <option value="">-- Choisir --</option>
+                        <option value="">-- Choose --</option>
                         {slots.map(s => <option key={s} value={s}>{s}</option>)}
                     </select>
                 </label>
                 <label className="visit-field" htmlFor="vr-note">
-                    <span>Note</span>
-                    <textarea id="vr-note" rows={3} value={note} onChange={(e)=>setNote(e.target.value)} placeholder="Informations complémentaires, préférences..." />
+                    <span>Rating</span>
+                    <textarea id="vr-note" rows={3} value={note} onChange={(e)=>setNote(e.target.value)} placeholder="Additional information, preferences..." />
                 </label>
                 <div className="visit-actions">
                     <button type="submit" disabled={!canSubmit || status==='loading'} aria-busy={status==='loading'}>
-                        {status==='loading' ? 'Envoi...' : 'Envoyer la demande'}
+                        {status==='loading' ? 'Sending...' : 'Send the request'}
                     </button>
                 </div>
             </form>
