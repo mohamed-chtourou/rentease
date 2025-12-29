@@ -314,6 +314,13 @@
   line-height: 1.5;
 }
 
+.contact-info {
+  font-weight: 600;
+  color: #1e584f !important;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
 /* CTA Section */
 .cta-section {
   background: linear-gradient(135deg, #1e584f 0%, #08464f 100%);

@@ -128,19 +128,16 @@ const HostResources = () => {
                     <p>Get support whenever you need it with our comprehensive host assistance program.</p>
                     <div className="support-options">
                         <div className="support-item">
-                            <div className="support-icon">💬</div>
-                            <h4>Live Chat Support</h4>
-                            <p>Instant help from our host specialists</p>
-                        </div>
-                        <div className="support-item">
                             <div className="support-icon">📞</div>
                             <h4>Phone Support</h4>
                             <p>Speak directly with our team</p>
+                            <p className="contact-info">+216 98 769 351</p>
                         </div>
                         <div className="support-item">
                             <div className="support-icon">📧</div>
                             <h4>Email Support</h4>
                             <p>Detailed assistance for complex issues</p>
+                            <p className="contact-info">rentease@gmail.com</p>
                         </div>
                         <div className="support-item">
                             <div className="support-icon">📚</div>
