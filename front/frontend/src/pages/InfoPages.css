@@ -177,6 +177,27 @@
   font-weight: 800;
 }
 
+.numbered-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+  color: #0b3d45;
+  counter-reset: step-counter;
+}
+
+.numbered-list li {
+  counter-increment: step-counter;
+}
+
+.numbered-list li::before {
+  content: counter(step-counter) '.';
+  color: #c0ce73;
+  margin-right: 0.4rem;
+  font-weight: 800;
+}
+
 .grid-block {
   margin-bottom: 2.5rem;
 }

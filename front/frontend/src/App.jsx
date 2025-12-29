@@ -13,6 +13,8 @@ import Footer from './components/Footer';
 import { mockListings } from './data/mockListings';
 import Rooms from './components/Rooms';
 import { HostOnboarding } from './pages/AuthPlaceholder';
+import BecomeHost from './pages/BecomeHost';
+import HostListingForm from './pages/HostListingForm';
 import LoginSignup from './components/LoginSignup';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -185,7 +187,8 @@ function App() {
                             <Route path="/login" element={<LoginSignup />} />
                             <Route path="/signup" element={<LoginSignup />} />
                             <Route path="/profile" element={<Profile listings={listings} />} />
-                            <Route path="/host" element={<HostOnboarding />} />
+                            <Route path="/host" element={<BecomeHost />} />
+                            <Route path="/host/listing" element={<HostListingForm />} />
                             <Route path="/about" element={<About />} />
                             <Route path="/contact" element={<Contact />} />
                             <Route path="/help" element={<Faq />} />
