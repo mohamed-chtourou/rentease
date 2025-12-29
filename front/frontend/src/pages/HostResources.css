@@ -195,9 +195,15 @@
   transition: all 0.3s ease;
 }
 
-.resource-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+.resource-card-link {
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.resource-card-link:hover .resource-card {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
 }
 
 .resource-icon {

@@ -30,6 +30,9 @@ import Cancellation from './pages/Cancellation';
 import Trust from './pages/Trust';
 import Report from './pages/Report';
 import HostResources from './pages/HostResources';
+import GettingStarted from './pages/GettingStarted';
+import PhotographyPresentation from './pages/PhotographyPresentation';
+import EarningsPricing from './pages/EarningsPricing';
 import Community from './pages/Community';
 import Responsible from './pages/Responsible';
 import Profile from './pages/Profile';
@@ -203,6 +206,9 @@ function App() {
                             <Route path="/trust" element={<Trust />} />
                             <Route path="/report" element={<Report />} />
                             <Route path="/host-resources" element={<HostResources />} />
+                            <Route path="/getting-started" element={<GettingStarted />} />
+                            <Route path="/photography-presentation" element={<PhotographyPresentation />} />
+                            <Route path="/earnings-pricing" element={<EarningsPricing />} />
                             <Route path="/community" element={<Community />} />
                             <Route path="/responsible-hosting" element={<Responsible />} />
                             <Route path="/messages" element={<Messages />} />

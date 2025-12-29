@@ -49,41 +49,47 @@ const HostResources = () => {
             </section>
 
             <section className="resources-grid">
-                <div className="resource-card">
-                    <div className="resource-icon">📋</div>
-                    <h3>Getting Started</h3>
-                    <p>Step-by-step guides to create your first listing and start hosting.</p>
-                    <ul className="resource-list">
-                        <li>How to create a compelling listing</li>
-                        <li>Setting the right price</li>
-                        <li>Understanding host requirements</li>
-                        <li>Verification process</li>
-                    </ul>
-                </div>
+                <Link to="/getting-started" className="resource-card-link">
+                    <div className="resource-card">
+                        <div className="resource-icon">📋</div>
+                        <h3>Getting Started</h3>
+                        <p>Step-by-step guides to create your first listing and start hosting.</p>
+                        <ul className="resource-list">
+                            <li>How to create a compelling listing</li>
+                            <li>Setting the right price</li>
+                            <li>Understanding host requirements</li>
+                            <li>Verification process</li>
+                        </ul>
+                    </div>
+                </Link>
 
-                <div className="resource-card">
-                    <div className="resource-icon">📸</div>
-                    <h3>Photography & Presentation</h3>
-                    <p>Professional tips to showcase your property at its best.</p>
-                    <ul className="resource-list">
-                        <li>Best camera settings</li>
-                        <li>Lighting techniques</li>
-                        <li>Room staging tips</li>
-                        <li>Photo editing basics</li>
-                    </ul>
-                </div>
+                <Link to="/photography-presentation" className="resource-card-link">
+                    <div className="resource-card">
+                        <div className="resource-icon">📸</div>
+                        <h3>Photography & Presentation</h3>
+                        <p>Professional tips to showcase your property at its best.</p>
+                        <ul className="resource-list">
+                            <li>Best camera settings</li>
+                            <li>Lighting techniques</li>
+                            <li>Room staging tips</li>
+                            <li>Photo editing basics</li>
+                        </ul>
+                    </div>
+                </Link>
 
-                <div className="resource-card">
-                    <div className="resource-icon">💰</div>
-                    <h3>Earnings & Pricing</h3>
-                    <p>Maximize your income with smart pricing strategies.</p>
-                    <ul className="resource-list">
-                        <li>Dynamic pricing guide</li>
-                        <li>Seasonal rate optimization</li>
-                        <li>Competitor analysis</li>
-                        <li>Revenue forecasting</li>
-                    </ul>
-                </div>
+                <Link to="/earnings-pricing" className="resource-card-link">
+                    <div className="resource-card">
+                        <div className="resource-icon">💰</div>
+                        <h3>Earnings & Pricing</h3>
+                        <p>Maximize your income with smart pricing strategies.</p>
+                        <ul className="resource-list">
+                            <li>Dynamic pricing guide</li>
+                            <li>Seasonal rate optimization</li>
+                            <li>Competitor analysis</li>
+                            <li>Revenue forecasting</li>
+                        </ul>
+                    </div>
+                </Link>
 
                 <div className="resource-card">
                     <div className="resource-icon">👥</div>
