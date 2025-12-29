@@ -33,6 +33,9 @@ import HostResources from './pages/HostResources';
 import GettingStarted from './pages/GettingStarted';
 import PhotographyPresentation from './pages/PhotographyPresentation';
 import EarningsPricing from './pages/EarningsPricing';
+import GuestManagement from './pages/GuestManagement';
+import PropertyManagement from './pages/PropertyManagement';
+import AnalyticsInsights from './pages/AnalyticsInsights';
 import Community from './pages/Community';
 import Responsible from './pages/Responsible';
 import Profile from './pages/Profile';
@@ -209,6 +212,9 @@ function App() {
                             <Route path="/getting-started" element={<GettingStarted />} />
                             <Route path="/photography-presentation" element={<PhotographyPresentation />} />
                             <Route path="/earnings-pricing" element={<EarningsPricing />} />
+                            <Route path="/guest-management" element={<GuestManagement />} />
+                            <Route path="/property-management" element={<PropertyManagement />} />
+                            <Route path="/analytics-insights" element={<AnalyticsInsights />} />
                             <Route path="/community" element={<Community />} />
                             <Route path="/responsible-hosting" element={<Responsible />} />
                             <Route path="/messages" element={<Messages />} />

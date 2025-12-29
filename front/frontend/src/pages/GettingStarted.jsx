@@ -121,19 +121,27 @@ const GettingStarted = () => {
                     <div className="tips-grid">
                         <div className="tip-card">
                             <h4>Start Small</h4>
-                            <p>Begin with one property and expand as you gain experience</p>
+                            <p>Begin with one property and expand as you gain experience and confidence in the RentEase platform.</p>
                         </div>
                         <div className="tip-card">
                             <h4>Be Responsive</h4>
-                            <p>Quick responses lead to more bookings and better reviews</p>
+                            <p>Quick responses to inquiries lead to more bookings and better reviews on our platform.</p>
                         </div>
                         <div className="tip-card">
                             <h4>Set Clear Expectations</h4>
-                            <p>Clearly communicate rules, check-in times, and amenities</p>
+                            <p>Clearly communicate house rules, check-in times, and amenities through your RentEase listing.</p>
                         </div>
                         <div className="tip-card">
                             <h4>Keep it Clean</h4>
-                            <p>A clean space is the foundation of great guest experiences</p>
+                            <p>A clean space is the foundation of great guest experiences and positive RentEase reviews.</p>
+                        </div>
+                        <div className="tip-card">
+                            <h4>Professional Photos</h4>
+                            <p>High-quality photos showcasing your property will attract more guests on RentEase.</p>
+                        </div>
+                        <div className="tip-card">
+                            <h4>Competitive Pricing</h4>
+                            <p>Research similar properties and set competitive rates to maximize your RentEase bookings.</p>
                         </div>
                     </div>
                 </div>

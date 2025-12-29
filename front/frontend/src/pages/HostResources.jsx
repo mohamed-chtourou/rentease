@@ -91,41 +91,47 @@ const HostResources = () => {
                     </div>
                 </Link>
 
-                <div className="resource-card">
-                    <div className="resource-icon">👥</div>
-                    <h3>Guest Management</h3>
-                    <p>Build great relationships with your guests.</p>
-                    <ul className="resource-list">
-                        <li>Communication templates</li>
-                        <li>Check-in/check-out procedures</li>
-                        <li>Handling special requests</li>
-                        <li>Review management</li>
-                    </ul>
-                </div>
+                <Link to="/guest-management" className="resource-card-link">
+                    <div className="resource-card">
+                        <div className="resource-icon">👥</div>
+                        <h3>Guest Management</h3>
+                        <p>Build great relationships with your guests.</p>
+                        <ul className="resource-list">
+                            <li>Communication templates</li>
+                            <li>Check-in/check-out procedures</li>
+                            <li>Handling special requests</li>
+                            <li>Review management</li>
+                        </ul>
+                    </div>
+                </Link>
 
-                <div className="resource-card">
-                    <div className="resource-icon">🛠️</div>
-                    <h3>Property Management</h3>
-                    <p>Tools and tips for maintaining your property.</p>
-                    <ul className="resource-list">
-                        <li>Maintenance checklists</li>
-                        <li>Cleaning standards</li>
-                        <li>Inventory management</li>
-                        <li>Emergency preparedness</li>
-                    </ul>
-                </div>
+                <Link to="/property-management" className="resource-card-link">
+                    <div className="resource-card">
+                        <div className="resource-icon">🛠️</div>
+                        <h3>Property Management</h3>
+                        <p>Tools and tips for maintaining your property.</p>
+                        <ul className="resource-list">
+                            <li>Maintenance checklists</li>
+                            <li>Cleaning standards</li>
+                            <li>Inventory management</li>
+                            <li>Emergency preparedness</li>
+                        </ul>
+                    </div>
+                </Link>
 
-                <div className="resource-card">
-                    <div className="resource-icon">📊</div>
-                    <h3>Analytics & Insights</h3>
-                    <p>Track your performance and grow your business.</p>
-                    <ul className="resource-list">
-                        <li>Performance dashboard</li>
-                        <li>Booking analytics</li>
-                        <li>Guest demographics</li>
-                        <li>Growth strategies</li>
-                    </ul>
-                </div>
+                <Link to="/analytics-insights" className="resource-card-link">
+                    <div className="resource-card">
+                        <div className="resource-icon">📊</div>
+                        <h3>Analytics & Insights</h3>
+                        <p>Track your performance and grow your business.</p>
+                        <ul className="resource-list">
+                            <li>Performance dashboard</li>
+                            <li>Booking analytics</li>
+                            <li>Guest demographics</li>
+                            <li>Growth strategies</li>
+                        </ul>
+                    </div>
+                </Link>
             </section>
 
             <section className="support-section">
