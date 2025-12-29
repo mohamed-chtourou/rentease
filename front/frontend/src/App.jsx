@@ -40,6 +40,8 @@ import Community from './pages/Community';
 import Responsible from './pages/Responsible';
 import Profile from './pages/Profile';
 import Messages from './pages/Messages';
+import HostDiscussions from './pages/HostDiscussions';
+import GuestExperiences from './pages/GuestExperiences';
 import './App.css';
 
 // Home page content extracted for routing clarity
@@ -218,6 +220,8 @@ function App() {
                             <Route path="/community" element={<Community />} />
                             <Route path="/responsible-hosting" element={<Responsible />} />
                             <Route path="/messages" element={<Messages />} />
+                            <Route path="/host-discussions" element={<HostDiscussions />} />
+                            <Route path="/guest-experiences" element={<GuestExperiences />} />
                         </Routes>
                         <Footer />
                     </div>
