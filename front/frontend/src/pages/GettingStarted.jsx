@@ -118,28 +118,44 @@ const GettingStarted = () => {
             <section className="tips-section">
                 <div className="tips-content">
                     <h2>Pro Tips for New Hosts</h2>
+                    <p className="section-intro">Essential advice to help you succeed as a RentEase host from day one</p>
+
                     <div className="tips-grid">
-                        <div className="tip-card">
+                        <div className="tip-card featured">
+                            <div className="card-header">
+                                <div className="tip-icon">🏠</div>
+                                <span className="card-meta">Essential</span>
+                            </div>
                             <h4>Start Small</h4>
                             <p>Begin with one property and expand as you gain experience and confidence in the RentEase platform.</p>
                         </div>
+
                         <div className="tip-card">
+                            <div className="tip-icon">⚡</div>
                             <h4>Be Responsive</h4>
                             <p>Quick responses to inquiries lead to more bookings and better reviews on our platform.</p>
                         </div>
+
                         <div className="tip-card">
+                            <div className="tip-icon">📋</div>
                             <h4>Set Clear Expectations</h4>
                             <p>Clearly communicate house rules, check-in times, and amenities through your RentEase listing.</p>
                         </div>
+
                         <div className="tip-card">
+                            <div className="tip-icon">✨</div>
                             <h4>Keep it Clean</h4>
                             <p>A clean space is the foundation of great guest experiences and positive RentEase reviews.</p>
                         </div>
+
                         <div className="tip-card">
+                            <div className="tip-icon">📸</div>
                             <h4>Professional Photos</h4>
                             <p>High-quality photos showcasing your property will attract more guests on RentEase.</p>
                         </div>
+
                         <div className="tip-card">
+                            <div className="tip-icon">💰</div>
                             <h4>Competitive Pricing</h4>
                             <p>Research similar properties and set competitive rates to maximize your RentEase bookings.</p>
                         </div>
