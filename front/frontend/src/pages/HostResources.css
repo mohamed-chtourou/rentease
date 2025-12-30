@@ -7,6 +7,7 @@
 
 /* Navigation Header */
 .page-nav-header {
+  color: #1e584f;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -144,6 +145,7 @@
 }
 
 .stats-grid {
+  color: #1e584f;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
@@ -187,6 +189,7 @@
 }
 
 .resource-card {
+  color: #1e584f;
   background: white;
   border-radius: 16px;
   padding: 2.5rem;
@@ -250,6 +253,7 @@
 
 /* Support Section */
 .support-section {
+  color: #1e584f;
   background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
   padding: 4rem 2rem;
   margin: 2rem 0;
@@ -288,6 +292,7 @@
 }
 
 .support-item {
+  color: #1e584f;
   background: white;
   padding: 2rem;
   border-radius: 16px;
@@ -329,6 +334,7 @@
 
 /* CTA Section */
 .cta-section {
+  color: #1e584f;
   background: linear-gradient(135deg, #1e584f 0%, #08464f 100%);
   padding: 4rem 2rem;
   color: white;

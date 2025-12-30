@@ -36,36 +36,60 @@ const HostListingForm = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setError(null);
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
 
-        try {
-            // Convert strings to arrays where needed
-            const dataToSend = {
-                ...formData,
-                price: parseFloat(formData.price),
-                bedrooms: parseInt(formData.bedrooms),
-                bathrooms: parseInt(formData.bathrooms),
-                surface: parseFloat(formData.surface),
+    try {
+        // Convert strings to arrays where needed
+        const dataToSend = {
+            title: formData.title,
+            description: formData.description,
+            price: parseFloat(formData.price),
+            type: formData.type,
+            bedrooms: parseInt(formData.bedrooms),
+            bathrooms: parseInt(formData.bathrooms),
+            surface: parseFloat(formData.surface),
+            address: formData.address,
+            city: formData.city,
+            // NESTED location object as per your schema
+            location: {
                 latitude: parseFloat(formData.latitude),
-                longitude: parseFloat(formData.longitude),
-                highlights: formData.highlights.split(',').map(h => h.trim()).filter(h => h),
-                notes: formData.notes.split(',').map(n => n.trim()).filter(n => n),
-                amenities: formData.amenities.split(',').map(a => a.trim()).filter(a => a),
-                images: formData.images.split(',').map(img => img.trim()).filter(img => img)
-            };
+                longitude: parseFloat(formData.longitude)
+            },
+            highlights: formData.highlights.split(',').map(h => h.trim()).filter(h => h),
+            notes: formData.notes.split(',').map(n => n.trim()).filter(n => n),
+            amenities: formData.amenities.split(',').map(a => a.trim()).filter(a => a),
+            image: formData.image,
+            images: formData.images.split(',').map(img => img.trim()).filter(img => img),
+            // Add required nested objects
+            availability: {
+                status: 'available',
+                availableFrom: new Date(),
+                availableTo: null
+            },
+            contact: {
+                phone: '', // Add these if your form has them
+                email: '',
+                officeHours: ''
+            },
+            rating: 0, // Default values
+            reviewCount: 0,
+            reviews: []
+        };
 
-            const response = await axios.post('http://localhost:5000/api/listings', dataToSend);
-            console.log('Listing created:', response.data);
-            navigate('/'); // Redirect to home or listing page
-        } catch (err) {
-            console.error('Error creating listing:', err);
-            setError(err.response?.data?.message || 'Failed to create listing');
-        } finally {
-            setLoading(false);
-        }
-    };
+        console.log('Sending data:', dataToSend);
+        
+        const response = await axios.post('http://localhost:5000/api/listings', dataToSend);
+        console.log('Listing created:', response.data);
+        navigate('/');
+    } catch (err) {
+        console.error('Error creating listing:', err);
+        setError(err.response?.data?.message || 'Failed to create listing');
+    } finally {
+        setLoading(false);
+    }
+};
 
     return (
         <div className="listing-form-container">

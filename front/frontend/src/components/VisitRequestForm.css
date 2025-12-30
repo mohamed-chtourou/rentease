@@ -3,7 +3,7 @@
 .visit-sub { margin: 0; font-size: 0.85rem; color: var(--text-muted,#555); }
 .visit-form { display: flex; flex-direction: column; gap: 0.75rem; }
 .visit-field { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.85rem; }
-.visit-field input, .visit-field select, .visit-field textarea { padding: 0.55rem 0.6rem; border: 1px solid var(--border-color,#ddd); border-radius: 6px; font-size: 0.85rem; background: var(--bg-muted,#fafafa); }
+.visit-field input, .visit-field select, .visit-field textarea { padding: 0.55rem 0.6rem; border: 1px solid var(--border-color,#ddd); border-radius: 6px; font-size: 0.85rem; background: var(--bg-muted,#fafafa);color: #4b5563; }
 .visit-field textarea { resize: vertical; }
 .visit-actions { display: flex; justify-content: flex-start; }
 .visit-actions button { background: var(--primary,#2b6cb0); color: #fff; border: none; padding: 0.6rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
