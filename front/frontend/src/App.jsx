@@ -13,6 +13,8 @@ import Footer from './components/Footer';
 import { mockListings } from './data/mockListings';
 import Rooms from './components/Rooms';
 import { HostOnboarding } from './pages/AuthPlaceholder';
+import BecomeHost from './pages/BecomeHost';
+import HostListingForm from './pages/HostListingForm';
 import LoginSignup from './components/LoginSignup';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -28,10 +30,18 @@ import Cancellation from './pages/Cancellation';
 import Trust from './pages/Trust';
 import Report from './pages/Report';
 import HostResources from './pages/HostResources';
+import GettingStarted from './pages/GettingStarted';
+import PhotographyPresentation from './pages/PhotographyPresentation';
+import EarningsPricing from './pages/EarningsPricing';
+import GuestManagement from './pages/GuestManagement';
+import PropertyManagement from './pages/PropertyManagement';
+import AnalyticsInsights from './pages/AnalyticsInsights';
 import Community from './pages/Community';
 import Responsible from './pages/Responsible';
 import Profile from './pages/Profile';
 import Messages from './pages/Messages';
+import HostDiscussions from './pages/HostDiscussions';
+import GuestExperiences from './pages/GuestExperiences';
 import './App.css';
 
 // Home page content extracted for routing clarity
@@ -185,7 +195,8 @@ function App() {
                             <Route path="/login" element={<LoginSignup />} />
                             <Route path="/signup" element={<LoginSignup />} />
                             <Route path="/profile" element={<Profile listings={listings} />} />
-                            <Route path="/host" element={<HostOnboarding />} />
+                            <Route path="/host" element={<BecomeHost />} />
+                            <Route path="/host/listing" element={<HostListingForm />} />
                             <Route path="/about" element={<About />} />
                             <Route path="/contact" element={<Contact />} />
                             <Route path="/help" element={<Faq />} />
@@ -200,9 +211,17 @@ function App() {
                             <Route path="/trust" element={<Trust />} />
                             <Route path="/report" element={<Report />} />
                             <Route path="/host-resources" element={<HostResources />} />
+                            <Route path="/getting-started" element={<GettingStarted />} />
+                            <Route path="/photography-presentation" element={<PhotographyPresentation />} />
+                            <Route path="/earnings-pricing" element={<EarningsPricing />} />
+                            <Route path="/guest-management" element={<GuestManagement />} />
+                            <Route path="/property-management" element={<PropertyManagement />} />
+                            <Route path="/analytics-insights" element={<AnalyticsInsights />} />
                             <Route path="/community" element={<Community />} />
                             <Route path="/responsible-hosting" element={<Responsible />} />
                             <Route path="/messages" element={<Messages />} />
+                            <Route path="/host-discussions" element={<HostDiscussions />} />
+                            <Route path="/guest-experiences" element={<GuestExperiences />} />
                         </Routes>
                         <Footer />
                     </div>
