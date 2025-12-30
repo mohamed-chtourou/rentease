@@ -338,7 +338,7 @@ const PropertyDetails = ({ listings = mockListings }) => {
                         </div>
                         <div id="contact" className="card contact-card" aria-label="Contact hôte">
                             <h2 className="card-title">Contact</h2>
-                            <p className="contact-line"><strong>Hôte :</strong> {listing.host || 'Hôte'}</p>
+                            <p className="contact-line"><strong>Host :</strong> {listing.host || 'Hôte'}</p>
                             {listing.contact?.phone && <p className="contact-line"><strong>Téléphone :</strong> {listing.contact.phone}</p>}
                             {listing.contact?.email && <p className="contact-line"><strong>Email :</strong> {listing.contact.email}</p>}
                             {(listing.contact?.email || listing.contact?.officeHours) && (
@@ -348,7 +348,7 @@ const PropertyDetails = ({ listings = mockListings }) => {
                             )}
                         </div>
                         <div className="card form-card">
-                            <h2 className="card-title">Contacter l'hôte</h2>
+                            <h2 className="card-title">Contact the host</h2>
                             <ContactHostForm
                                 listingId={listing._id}
                                 listingTitle={listing.title}

@@ -11,7 +11,7 @@ const EarningsPricing = () => {
                 <Link to="/" className="logo-home-link">
                     <img src="/logo.png" alt="RentEase" className="page-logo" />
                 </Link>
-                <button className="back-link" onClick={() => navigate(-1)}>← Retour</button>
+                <button className="back-link" onClick={() => navigate(-1)}>← Back</button>
             </div>
 
             <section className="resource-hero">

@@ -23,7 +23,7 @@ const Contact = () => {
         <Link to="/" className="logo-home-link">
           <img src="/logo.png" alt="RentEase" className="page-logo" />
         </Link>
-        <button className="back-link" onClick={() => navigate(-1)}>← Retour</button>
+        <button className="back-link" onClick={() => navigate(-1)}>← Back</button>
       </div>
       <section className="hero-panel">
         <p className="eyebrow">Contact</p>
@@ -36,7 +36,7 @@ const Contact = () => {
 
       <div className="contact-grid">
         <div className="form-card">
-          <h2>Écrivez-nous</h2>
+          <h2>Write us</h2>
           {submitted && (
             <p className="meta" style={{ marginBottom: '0.6rem' }}>
               Merci ! Votre message a été enregistré. Nous revenons vers vous dans les plus brefs délais.
