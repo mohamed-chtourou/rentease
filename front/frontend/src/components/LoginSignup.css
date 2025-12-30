@@ -35,11 +35,11 @@
 }
 
 .auth-form { display:flex; flex-direction:column; gap:1rem; }
-.input-group { display:flex; flex-direction:column; gap:.35rem; }
+.input-group { display:flex; flex-direction:column; gap:.35rem; color: #1a3a2e;}
 .input-group label { font-size:.95rem; color:#1a3a2e; font-weight:600; }
 
 .auth-form-box input,
-.auth-form-box select { padding:.875rem 1rem; border:1px solid #d6e8da; border-radius:10px; font-size:1rem; font-family:'Poppins', sans-serif; transition:border-color .3s ease, box-shadow .3s ease; background:#fff; }
+.auth-form-box select { padding:.875rem 1rem; border:1px solid #d6e8da; border-radius:10px; font-size:1rem; font-family:'Poppins', sans-serif; transition:border-color .3s ease, box-shadow .3s ease; background:#fff; color: #1a3a2e;}
 
 .auth-form-box input:focus,
 .auth-form-box select:focus {

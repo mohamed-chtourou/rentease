@@ -47,6 +47,7 @@ const LoginSignup = () => {
 
     return (
         <div className="auth-container">
+            <br />
             <div className="auth-form-box">
                 <h2>{isLogin ? 'Sign in' : "Create an account"} RentEase</h2>
                 
@@ -103,7 +104,7 @@ const LoginSignup = () => {
                             checked={rememberMe}
                             onChange={(e) => setRememberMe(e.target.checked)}
                         />
-                        Rester connecté·e
+                        Remember me
                     </label>
                     <button type="submit" disabled={loading}>
                         {loading ? 'Loading...' : (isLogin ? 'Sign in' : "Register")}
@@ -120,6 +121,7 @@ const LoginSignup = () => {
                     </span>
                 </p>
             </div>
+            <br />
         </div>
     );
 };
